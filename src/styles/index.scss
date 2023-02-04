@@ -1,0 +1,172 @@
+@import './mix-ins';
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  margin: 0;
+  --textColor: white;
+  --activeTextColor: #cb532e;
+
+  p {
+    margin: 0;
+  }
+}
+
+.navbar {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  min-height: 5.5rem;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0.5rem;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  .navbar-resp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include tablet {
+      width: 35rem;
+    }
+  }
+
+  .navbar-logo {
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 8rem;
+  }
+
+  .navbar-items {
+    // width: 70%;
+    max-width: 30rem;
+    display: flex;
+    color: var(--textColor);
+    overflow: hidden;
+    list-style: none;
+
+    &__link {
+      padding: 0 15px;
+      color: var(--textColor);
+      text-decoration: none;
+      text-transform: uppercase;
+
+      a {
+        text-decoration: none;
+        color: var(--textColor);
+
+        &:hover {
+          color: var(--activeTextColor);
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      @include tablet {
+        margin-bottom: 1rem;
+        padding: 0;
+      }
+
+      &--active {
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 0 15px;
+        color: var(--activeTextColor);
+
+        &:hover {
+          color: var(--activeTextColor);
+        }
+
+        @include tablet {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+
+    &--resp {
+      display: flex !important;
+    }
+
+    @include tablet {
+      //margin: 0 1.3rem;
+      flex-direction: column;
+      display: none;
+    }
+  }
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 5.5rem;
+    flex-wrap: wrap;
+    padding: 0.5rem;
+  }
+
+  .toggle-menu {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 35px;
+    height: 30px;
+    display: none;
+
+    &__icon {
+      background-color: white;
+      width: 100%;
+      height: 3px;
+      border-radius: 10px;
+
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+    }
+
+    @include tablet {
+      display: flex;
+      margin: 1rem;
+    }
+  }
+}
+
+.home {
+  background-color: red;
+  width: 100%;
+  height: 550px;
+}
+
+.about {
+  background-color: blue;
+  width: 100%;
+  height: 550px;
+}
+
+.resume {
+  background-color: red;
+  width: 100%;
+  height: 550px;
+}
+
+.portfolio {
+  background-color: blue;
+  width: 100%;
+  height: 550px;
+}
+
+.skills {
+  background-color: red;
+  width: 100%;
+  height: 550px;
+}
