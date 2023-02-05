@@ -5,10 +5,7 @@ import { useGlobalContext } from '../context/context';
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [activeItem, setActiveItem] = useState('home');
-
   const { state } = useGlobalContext();
-
-  console.log(state, window.scrollY);
 
   const navMenu = [
     {
@@ -38,30 +35,34 @@ const Navbar = () => {
   };
 
   const handleIsActive = (id) => {
-    const navId = navMenu.find((item) => item.id === id);
+    //const navId = navMenu.find((item) => item.id === id);
 
-    if (navId.id === id) {
-      setActiveItem(navId.title);
+    if (navMenu.includes(id)) {
+      setActiveItem(`${navMenu[id].title}`);
     }
   };
 
   const changeNavColorOnScroll = () => {
-    if (state.homePosition >= window.scrollY) {
+    if (state.homePosition > window.scrollY) {
       setActiveItem('home');
-    } else if (state.aboutPosition >= window.scrollY) {
+    } else if (state.aboutPosition > window.scrollY) {
       setActiveItem('about');
-    } else if (state.resumePosition >= window.scrollY) {
+    } else if (state.resumePosition > window.scrollY) {
       setActiveItem('resume');
-    } else if (state.portfolioPosition >= window.scrollY) {
+    } else if (state.portfolioPosition > window.scrollY) {
       setActiveItem('portfolio');
-    } else if (state.skillsPosition >= window.scrollY) {
+    } else {
       setActiveItem('skills');
     }
   };
 
   useEffect(() => {
     changeNavColorOnScroll();
-    window.addEventListener('scroll', changeNavColorOnScroll);
+    document.addEventListener('scroll', changeNavColorOnScroll);
+
+    return () => {
+      document.removeEventListener('scroll', changeNavColorOnScroll);
+    };
   }, [state]);
 
   return (
@@ -80,15 +81,14 @@ const Navbar = () => {
       <nav id="toggle">
         <ul className={!toggleMenu ? 'navbar-items' : 'navbar-items navbar-items--resp'}>
           {navMenu.map((item) => (
-            <HashLink
+            <li
               key={item.id}
-              to={`#${item.title}`}
-              className={
-                activeItem === item.title ? 'navbar-items__link--active' : 'navbar-items__link'
-              }
-              onClick={() => handleIsActive(item.id)}>
-              {item.title}
-            </HashLink>
+              onClick={() => handleIsActive(item.id)}
+              className={`navbar-items__link${activeItem === item.title ? '--active' : ''}`}>
+              <a href={`#${item.title}`} data-scroll={`${item.title}`}>
+                {item.title}
+              </a>
+            </li>
           ))}
         </ul>
       </nav>

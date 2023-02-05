@@ -10,7 +10,8 @@ const Portfolio = () => {
   }, []);
 
   const getPosition = () => {
-    dispatch({ type: 'ADD_PORTFOLIO_POSITION', payload: portfolioRef.current.offsetTop });
+    const position = portfolioRef.current.offsetHeight + portfolioRef.current.offsetTop;
+    dispatch({ type: 'ADD_PORTFOLIO_POSITION', payload: position });
   };
 
   return (

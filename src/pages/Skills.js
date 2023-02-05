@@ -10,7 +10,8 @@ const Skills = () => {
   }, []);
 
   const getPosition = () => {
-    dispatch({ type: 'ADD_SKILLS_POSITION', payload: skillsRef.current.offsetTop });
+    const position = skillsRef.current.offsetHeight + skillsRef.current.offsetTop;
+    dispatch({ type: 'ADD_SKILLS_POSITION', payload: position });
   };
   return (
     <section className="skills" id="skills" ref={skillsRef}>

@@ -10,7 +10,8 @@ const About = () => {
   }, []);
 
   const getPosition = () => {
-    dispatch({ type: 'ADD_ABOUT_POSITION', payload: aboutRef.current.offsetTop });
+    const position = aboutRef.current.offsetHeight + aboutRef.current.offsetTop;
+    dispatch({ type: 'ADD_ABOUT_POSITION', payload: position });
   };
 
   return (

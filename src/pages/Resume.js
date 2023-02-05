@@ -10,7 +10,8 @@ const Resume = () => {
   }, []);
 
   const getPosition = () => {
-    dispatch({ type: 'ADD_RESUME_POSITION', payload: resumeRef.current.offsetTop });
+    const position = resumeRef.current.offsetHeight + resumeRef.current.offsetTop;
+    dispatch({ type: 'ADD_RESUME_POSITION', payload: position });
   };
   return (
     <section className="resume" id="resume" ref={resumeRef}>
