@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { HashLink } from 'react-router-hash-link';
+import { Link } from 'react-scroll';
 import { useGlobalContext } from '../context/context';
 
 const Navbar = () => {
@@ -35,35 +35,35 @@ const Navbar = () => {
   };
 
   const handleIsActive = (id) => {
-    //const navId = navMenu.find((item) => item.id === id);
+    const navId = navMenu.find((item) => item.id === id);
 
     if (navMenu.includes(id)) {
       setActiveItem(`${navMenu[id].title}`);
     }
   };
 
-  const changeNavColorOnScroll = () => {
-    if (state.homePosition > window.scrollY) {
-      setActiveItem('home');
-    } else if (state.aboutPosition > window.scrollY) {
-      setActiveItem('about');
-    } else if (state.resumePosition > window.scrollY) {
-      setActiveItem('resume');
-    } else if (state.portfolioPosition > window.scrollY) {
-      setActiveItem('portfolio');
-    } else {
-      setActiveItem('skills');
-    }
-  };
+  //   const changeNavColorOnScroll = () => {
+  //     if (state.homePosition > window.scrollY && window.scrollY < state.aboutPosition) {
+  //       setActiveItem('home');
+  //     } else if (state.aboutPosition > window.scrollY && window.scrollY < state.resumePosition) {
+  //       setActiveItem('about');
+  //     } else if (state.resumePosition > window.scrollY && window.scrollY < state.portfolioPosition) {
+  //       setActiveItem('resume');
+  //     } else if (state.portfolioPosition > window.scrollY && window.scrollY < state.skillsPosition) {
+  //       setActiveItem('portfolio');
+  //     } else if (state.skillsPosition > window.scrollY) {
+  //       setActiveItem('skills');
+  //     }
+  //   };
 
-  useEffect(() => {
-    changeNavColorOnScroll();
-    document.addEventListener('scroll', changeNavColorOnScroll);
+  //   useEffect(() => {
+  //     changeNavColorOnScroll();
+  //     window.addEventListener('scroll', changeNavColorOnScroll);
 
-    return () => {
-      document.removeEventListener('scroll', changeNavColorOnScroll);
-    };
-  }, [state]);
+  //     return () => {
+  //       window.removeEventListener('scroll', changeNavColorOnScroll);
+  //     };
+  //   }, []);
 
   return (
     <header className="navbar">
@@ -81,13 +81,14 @@ const Navbar = () => {
       <nav id="toggle">
         <ul className={!toggleMenu ? 'navbar-items' : 'navbar-items navbar-items--resp'}>
           {navMenu.map((item) => (
-            <li
-              key={item.id}
-              onClick={() => handleIsActive(item.id)}
-              className={`navbar-items__link${activeItem === item.title ? '--active' : ''}`}>
-              <a href={`#${item.title}`} data-scroll={`${item.title}`}>
+            <li className="navbar-items__link" key={item.id}>
+              <Link
+                onClick={() => handleIsActive(item.id)}
+                activeClass="navbar-items__link--active"
+                to={`${item.title}`}
+                spy>
                 {item.title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

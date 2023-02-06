@@ -2,6 +2,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useGlobalContext } from '../context/context';
 import Particles from 'react-particles';
 import { loadFull } from 'tsparticles';
+import { Typewriter } from 'react-simple-typewriter';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedinIn, faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 const Home = () => {
   const homeRef = useRef();
@@ -48,10 +51,7 @@ const Home = () => {
   };
 
   const particlesInit = useCallback(async (engine) => {
-    console.log(engine);
-    // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
-    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-    // starting from v2 you can add only the features you need reducing the bundle size
+    //console.log(engine);
     await loadFull(engine);
   }, []);
 
@@ -61,6 +61,36 @@ const Home = () => {
 
   return (
     <section className="home" id="home" ref={homeRef}>
+      <div className="typewriter">
+        <p>Hello</p>
+        <p className="name">
+          {`I'm`}
+          <span> Josipa</span> Znaor
+        </p>
+        <h1>
+          <p>{`I'm`}</p>
+          <Typewriter
+            loop
+            words={['Web Developer', 'Photography lover']}
+            cursor
+            cursorBlinking={false}
+            typeSpeed={40}
+            cursorColor={'#cb532e'}
+          />
+        </h1>
+        <div className="social-icons">
+          <a href="#">
+            <FontAwesomeIcon icon={faLinkedinIn} />
+          </a>
+          <a href="#">
+            <FontAwesomeIcon icon={faFacebookF} />
+          </a>
+          <a href="#">
+            <FontAwesomeIcon icon={faInstagram} />
+          </a>
+        </div>
+      </div>
+
       <Particles init={particlesInit} loaded={particlesLoaded} options={options} />
     </section>
   );

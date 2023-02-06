@@ -16,6 +16,9 @@ const SharedLayout = () => {
         <Portfolio />
         <Skills />
       </main>
+      <footer>
+        <p>footer</p>
+      </footer>
     </>
   );
 };
