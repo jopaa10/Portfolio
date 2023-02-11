@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import SectionHeadLine from '../components/SectionHeadline';
 import { useGlobalContext } from '../context/context';
 
 const Skills = () => {
@@ -15,6 +16,7 @@ const Skills = () => {
   };
   return (
     <section className="skills" id="skills" ref={skillsRef}>
+      <SectionHeadLine headline={'skills'} subtext={`my skills`} />
       <p>Skills</p>
     </section>
   );

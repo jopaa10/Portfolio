@@ -62,7 +62,7 @@ const Home = () => {
   return (
     <section className="home" id="home" ref={homeRef}>
       <div className="typewriter">
-        <p>Hello</p>
+        <p className="intro">Hello</p>
         <p className="name">
           {`I'm`}
           <span> Josipa</span> Znaor

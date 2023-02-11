@@ -1,0 +1,94 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 5rem 0;
+  margin: 0 4rem;
+  height: 60%;
+
+  .image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-me {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    p {
+      padding: 2rem 0;
+    }
+
+    &__info {
+      padding: 2rem 0;
+
+      ul {
+        list-style: none;
+        display: flex;
+        padding: 0;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        li {
+          display: flex;
+          margin: 1rem 0;
+          flex-basis: calc(50% - 20px);
+
+          span {
+            display: block;
+            min-width: 5rem;
+            color: #cb532e;
+          }
+        }
+      }
+    }
+
+    &__cv {
+      display: flex;
+      justify-content: flex-start;
+
+      &__btn {
+        border-radius: 2rem;
+        color: #cb532e;
+        text-decoration: none;
+        box-shadow: inset 0px 0px 0px 2px #cb532e;
+        padding: 1rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        transition: 0.3s ease-in;
+
+        p {
+          padding: 0 0.4rem;
+        }
+
+        &:hover {
+          color: #fff;
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 100%;
+          background-color: #cb532e;
+          z-index: -1;
+          transition: 0.3s ease-in;
+        }
+
+        &:hover:before {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

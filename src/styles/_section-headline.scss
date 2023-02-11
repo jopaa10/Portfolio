@@ -1,0 +1,26 @@
+.headline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  h2 {
+    margin: 0;
+    color: #333;
+    font-weight: 700;
+    line-height: 90px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
+    transition: 0.7s ease;
+    font-size: 5rem;
+  }
+
+  p {
+    color: #cb532e;
+    position: absolute;
+    font-size: 2rem;
+    text-transform: capitalize;
+  }
+}
