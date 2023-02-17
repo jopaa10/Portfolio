@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import SectionHeadLine from '../components/SectionHeadline';
 import { useGlobalContext } from '../context/context';
-import '../styles/_resume-section.scss';
 
 const Portfolio = () => {
   const portfolioRef = useRef();

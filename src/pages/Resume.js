@@ -6,6 +6,8 @@ import TimelineContent from '../components/Timeline/TimelineContent';
 import { faGraduationCap, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 import EducationData from '../utils/timelineData/EducationData';
 import ExperienceData from '../utils/timelineData/ExperienceData';
+import SectionWrapper from '../components/SectionWrapper';
+import '../styles/pages/_resume-section.scss';
 
 const Resume = () => {
   const resumeRef = useRef();
@@ -22,19 +24,21 @@ const Resume = () => {
 
   return (
     <section className="resume" id="resume" ref={resumeRef}>
-      <SectionHeadLine headline={'resume'} subtext={`Qualifications`} />
-      <div className="content">
-        <Timeline title={'my experience'} icon={faLaptopCode}>
-          {ExperienceData.map((item) => {
-            return <TimelineContent {...item} key={item.id} />;
-          })}
-        </Timeline>
-        <Timeline title={'my education'} icon={faGraduationCap}>
-          {EducationData.map((item) => {
-            return <TimelineContent {...item} key={item.id} />;
-          })}
-        </Timeline>
-      </div>
+      <SectionWrapper>
+        <SectionHeadLine headline={'resume'} subtext={`Qualifications`} />
+        <div className="content">
+          <Timeline title={'my experience'} icon={faLaptopCode}>
+            {ExperienceData.map((item) => {
+              return <TimelineContent {...item} key={item.id} />;
+            })}
+          </Timeline>
+          <Timeline title={'my education'} icon={faGraduationCap}>
+            {EducationData.map((item) => {
+              return <TimelineContent {...item} key={item.id} />;
+            })}
+          </Timeline>
+        </div>
+      </SectionWrapper>
     </section>
   );
 };

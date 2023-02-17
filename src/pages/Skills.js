@@ -1,6 +1,10 @@
 import { useEffect, useRef } from 'react';
+import Loader from '../components/Loader';
 import SectionHeadLine from '../components/SectionHeadline';
+import SectionWrapper from '../components/SectionWrapper';
 import { useGlobalContext } from '../context/context';
+import '../styles/pages/_skills-section.scss';
+import SkillsData from '../utils/skillsData/SkillsData';
 
 const Skills = () => {
   const skillsRef = useRef();
@@ -16,8 +20,14 @@ const Skills = () => {
   };
   return (
     <section className="skills" id="skills" ref={skillsRef}>
-      <SectionHeadLine headline={'skills'} subtext={`my skills`} />
-      <p>Skills</p>
+      <SectionWrapper>
+        <SectionHeadLine headline={'skills'} subtext={`my skills`} />
+        <div className="skills-box">
+          {SkillsData.map((item) => (
+            <Loader {...item} key={item.id} />
+          ))}
+        </div>
+      </SectionWrapper>
     </section>
   );
 };

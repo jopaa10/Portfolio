@@ -1,11 +1,12 @@
 .timeline-container {
   color: white;
-  width: fit-content;
+  width: 100%;
   height: auto;
-  padding-left: 5.3rem;
+  padding-left: 4.3rem;
   margin: 0 auto;
   position: relative;
   margin-bottom: 3rem;
+  max-width: 24rem;
 
   &__headline {
     display: flex;
@@ -27,21 +28,21 @@
     background-color: #0f1013;
     padding: 10px 15px 15px 30px;
     border-radius: 5px;
-    margin: 0 1rem 1rem;
+    margin-bottom: 1rem;
     width: auto;
     height: auto;
     line-height: 1.4;
 
     h4 {
       margin: 0;
-      color: #cb532e;
+      color: var(--activeTextColor);
       text-transform: capitalize;
     }
 
     .circle {
       position: absolute;
       top: 50%;
-      left: -44.5px;
+      left: -28.5px;
       transform: translate(-50%, -50%);
       width: 20px;
       height: 20px;
@@ -74,13 +75,18 @@
       background-color: #0f1013;
       border-bottom-left-radius: 5px;
     }
+
+    &:hover .circle {
+      background-color: var(--activeTextColor);
+      border: 2px solid var(--borderColor);
+    }
   }
 
   &::before {
     content: '';
     position: absolute;
     top: 4.5rem;
-    left: 3.5rem;
+    left: 2.5rem;
     height: calc(100% - 2.5rem);
     width: 1px;
     background-color: #555;

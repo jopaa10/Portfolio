@@ -4,7 +4,14 @@ import Particles from 'react-particles';
 import { loadFull } from 'tsparticles';
 import { Typewriter } from 'react-simple-typewriter';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedinIn, faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import {
+  faLinkedinIn,
+  faFacebookF,
+  faInstagram,
+  faGithub
+} from '@fortawesome/free-brands-svg-icons';
+import SectionWrapper from '../components/SectionWrapper';
+import '../styles/pages/_home-section.scss';
 
 const Home = () => {
   const homeRef = useRef();
@@ -61,36 +68,40 @@ const Home = () => {
 
   return (
     <section className="home" id="home" ref={homeRef}>
-      <div className="typewriter">
-        <p className="intro">Hello</p>
-        <p className="name">
-          {`I'm`}
-          <span> Josipa</span> Znaor
-        </p>
-        <h1>
-          <p>{`I'm`}</p>
-          <Typewriter
-            loop
-            words={['Web Developer', 'Photography lover']}
-            cursor
-            cursorBlinking={false}
-            typeSpeed={40}
-            cursorColor={'#cb532e'}
-          />
-        </h1>
-        <div className="social-icons">
-          <a href="#">
-            <FontAwesomeIcon icon={faLinkedinIn} />
-          </a>
-          <a href="#">
-            <FontAwesomeIcon icon={faFacebookF} />
-          </a>
-          <a href="#">
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
+      <SectionWrapper>
+        <div className="typewriter">
+          <p className="intro">Hello</p>
+          <p className="name">
+            {`I'm`}
+            <span> Josipa</span> Znaor
+          </p>
+          <h1>
+            <p>{`I'm`}</p>
+            <Typewriter
+              loop
+              words={['Web Developer', 'Photography lover']}
+              cursor
+              cursorBlinking={false}
+              typeSpeed={40}
+              cursorColor={'#cb532e'}
+            />
+          </h1>
+          <div className="social-icons">
+            <a href="#" aria-label="Social media links">
+              <FontAwesomeIcon icon={faLinkedinIn} />
+            </a>
+            <a href="#" aria-label="Social media links">
+              <FontAwesomeIcon icon={faFacebookF} />
+            </a>
+            <a href="#" aria-label="Social media links">
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+            <a href="#" aria-label="Social media links">
+              <FontAwesomeIcon icon={faGithub} />
+            </a>
+          </div>
         </div>
-      </div>
-
+      </SectionWrapper>
       <Particles init={particlesInit} loaded={particlesLoaded} options={options} />
     </section>
   );

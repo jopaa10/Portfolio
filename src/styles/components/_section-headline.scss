@@ -1,3 +1,5 @@
+@import '../mix-ins.scss';
+
 .headline {
   display: flex;
   justify-content: center;
@@ -15,6 +17,10 @@
     max-width: 100%;
     transition: 0.7s ease;
     font-size: 5rem;
+
+    @include tablet {
+      font-size: 4rem;
+    }
   }
 
   p {
@@ -22,5 +28,9 @@
     position: absolute;
     font-size: 2rem;
     text-transform: capitalize;
+
+    @include tablet {
+      font-size: 1.5rem;
+    }
   }
 }

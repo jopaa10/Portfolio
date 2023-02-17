@@ -4,6 +4,7 @@ import Home from '../pages/Home';
 import Resume from '../pages/Resume';
 import Skills from '../pages/Skills';
 import Portfolio from '../pages/Portfolio';
+import Footer from '../components/Footer';
 
 const SharedLayout = () => {
   return (
@@ -16,9 +17,7 @@ const SharedLayout = () => {
         <Portfolio />
         <Skills />
       </main>
-      <footer>
-        <p>footer</p>
-      </footer>
+      <Footer />
     </>
   );
 };

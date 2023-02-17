@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
 import { useGlobalContext } from '../context/context';
+import SectionWrapper from './SectionWrapper';
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -67,32 +68,36 @@ const Navbar = () => {
 
   return (
     <header className="navbar">
-      <section className="navbar-resp">
-        <div className="navbar-logo">
-          <p>Josipa</p>
-        </div>
-        <div className="toggle-menu" onClick={() => handleShowNavItems()}>
-          <span className="toggle-menu__icon"></span>
-          <span className="toggle-menu__icon"></span>
-          <span className="toggle-menu__icon"></span>
-        </div>
-      </section>
+      <SectionWrapper>
+        <div className="navbar-section">
+          <section className="navbar-resp">
+            <div className="navbar-logo">
+              <p>Josipa</p>
+            </div>
+            <div className="toggle-menu" onClick={() => handleShowNavItems()}>
+              <span className="toggle-menu__icon"></span>
+              <span className="toggle-menu__icon"></span>
+              <span className="toggle-menu__icon"></span>
+            </div>
+          </section>
 
-      <nav id="toggle">
-        <ul className={!toggleMenu ? 'navbar-items' : 'navbar-items navbar-items--resp'}>
-          {navMenu.map((item) => (
-            <li className="navbar-items__link" key={item.id}>
-              <Link
-                onClick={() => handleIsActive(item.id)}
-                activeClass="navbar-items__link--active"
-                to={`${item.title}`}
-                spy>
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+          <nav id="toggle">
+            <ul className={!toggleMenu ? 'navbar-items' : 'navbar-items navbar-items--resp'}>
+              {navMenu.map((item) => (
+                <li className="navbar-items__link" key={item.id}>
+                  <Link
+                    onClick={() => handleIsActive(item.id)}
+                    activeClass="navbar-items__link--active"
+                    to={`${item.title}`}
+                    spy>
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </SectionWrapper>
     </header>
   );
 };

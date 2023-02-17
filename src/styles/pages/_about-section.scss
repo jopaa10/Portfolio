@@ -1,3 +1,13 @@
+@import '../mix-ins';
+
+#about {
+  background-color: #141414;
+  width: 100%;
+  position: relative;
+  height: auto;
+  padding: 8rem 0;
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -6,7 +16,6 @@
   color: white;
   padding: 5rem 0;
   margin: 0 4rem;
-  height: 60%;
 
   .image {
     width: 50%;
@@ -42,7 +51,7 @@
           span {
             display: block;
             min-width: 5rem;
-            color: #cb532e;
+            color: var(--activeTextColor);
           }
         }
       }
@@ -54,9 +63,9 @@
 
       &__btn {
         border-radius: 2rem;
-        color: #cb532e;
+        color: var(--activeTextColor);
         text-decoration: none;
-        box-shadow: inset 0px 0px 0px 2px #cb532e;
+        box-shadow: inset 0px 0px 0px 2px var(--activeTextColor);
         padding: 1rem 1rem;
         display: flex;
         justify-content: space-between;
@@ -80,7 +89,7 @@
           left: 0;
           width: 0;
           height: 100%;
-          background-color: #cb532e;
+          background-color: var(--activeTextColor);
           z-index: -1;
           transition: 0.3s ease-in;
         }
@@ -90,5 +99,11 @@
         }
       }
     }
+  }
+
+  @include tablet {
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
   }
 }
