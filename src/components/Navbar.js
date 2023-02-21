@@ -15,6 +15,7 @@ const Navbar = () => {
   };
 
   const handleIsActive = (id) => {
+    setToggleMenu(false);
     if (NavbarData.includes(id)) {
       setActiveItem(`${NavbarData[id].title}`);
     }
@@ -51,12 +52,11 @@ const Navbar = () => {
             <div className="navbar-logo">
               <p>Josipa</p>
             </div>
-            {/* <div className="toggle-menu" onClick={() => handleShowNavItems()}>
-              <span className="toggle-menu__icon"></span>
-              <span className="toggle-menu__icon"></span>
-              <span className="toggle-menu__icon"></span>
-            </div> */}
-            <Hamburger handleShowNavItems={handleShowNavItems} />
+            <Hamburger
+              handleShowNavItems={handleShowNavItems}
+              toggleMenu={toggleMenu}
+              setToogleMenu={setToggleMenu}
+            />
           </section>
 
           <nav id="toggle">
