@@ -1,4 +1,4 @@
-import '../../styles/_timeline.scss';
+import '../../styles/components/_timeline.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Timeline = ({ children, title, icon }) => {

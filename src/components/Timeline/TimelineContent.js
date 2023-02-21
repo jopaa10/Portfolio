@@ -1,4 +1,4 @@
-import '../../styles/_timeline.scss';
+import '../../styles/components/_timeline.scss';
 
 const TimelineContent = ({ headline, id, info, date }) => {
   return (

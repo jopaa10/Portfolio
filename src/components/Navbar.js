@@ -1,45 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
 import { useGlobalContext } from '../context/context';
+import Hamburger from './Hamburger';
 import SectionWrapper from './SectionWrapper';
+import NavbarData from '../utils/navbarData/NavbarData';
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [activeItem, setActiveItem] = useState('home');
   const { state } = useGlobalContext();
 
-  const navMenu = [
-    {
-      id: 1,
-      title: 'home'
-    },
-    {
-      id: 2,
-      title: 'about'
-    },
-    {
-      id: 3,
-      title: 'resume'
-    },
-    {
-      id: 4,
-      title: 'portfolio'
-    },
-    {
-      id: 5,
-      title: 'skills'
-    }
-  ];
-
   const handleShowNavItems = () => {
     setToggleMenu(!toggleMenu);
   };
 
   const handleIsActive = (id) => {
-    const navId = navMenu.find((item) => item.id === id);
-
-    if (navMenu.includes(id)) {
-      setActiveItem(`${navMenu[id].title}`);
+    if (NavbarData.includes(id)) {
+      setActiveItem(`${NavbarData[id].title}`);
     }
   };
 
@@ -74,16 +51,17 @@ const Navbar = () => {
             <div className="navbar-logo">
               <p>Josipa</p>
             </div>
-            <div className="toggle-menu" onClick={() => handleShowNavItems()}>
+            {/* <div className="toggle-menu" onClick={() => handleShowNavItems()}>
               <span className="toggle-menu__icon"></span>
               <span className="toggle-menu__icon"></span>
               <span className="toggle-menu__icon"></span>
-            </div>
+            </div> */}
+            <Hamburger handleShowNavItems={handleShowNavItems} />
           </section>
 
           <nav id="toggle">
             <ul className={!toggleMenu ? 'navbar-items' : 'navbar-items navbar-items--resp'}>
-              {navMenu.map((item) => (
+              {NavbarData.map((item) => (
                 <li className="navbar-items__link" key={item.id}>
                   <Link
                     onClick={() => handleIsActive(item.id)}

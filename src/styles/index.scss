@@ -123,30 +123,30 @@ html {
       }
     }
 
-    .toggle-menu {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      width: 35px;
-      height: 30px;
-      display: none;
+    // .toggle-menu {
+    //   display: flex;
+    //   justify-content: center;
+    //   flex-direction: column;
+    //   width: 35px;
+    //   height: 30px;
+    //   display: none;
 
-      &__icon {
-        background-color: white;
-        width: 100%;
-        height: 3px;
-        border-radius: 10px;
+    //   &__icon {
+    //     background-color: white;
+    //     width: 100%;
+    //     height: 3px;
+    //     border-radius: 10px;
 
-        &:not(:last-child) {
-          margin-bottom: 5px;
-        }
-      }
+    //     &:not(:last-child) {
+    //       margin-bottom: 5px;
+    //     }
+    //   }
 
-      @include tablet {
-        display: flex;
-        margin: 1rem;
-      }
-    }
+    //   @include tablet {
+    //     display: flex;
+    //     margin: 1rem;
+    //   }
+    // }
   }
   @include tablet {
     flex-direction: row;
@@ -156,6 +156,10 @@ html {
     flex-wrap: wrap;
     padding: 0.5rem;
     position: fixed;
+  }
+
+  @include mobile {
+    padding: 0.3rem;
   }
 }
 
