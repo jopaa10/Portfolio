@@ -1,0 +1,26 @@
+.btn-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 2rem;
+  gap: 1rem;
+
+  &__filter-btn {
+    background: transparent;
+    border-color: transparent;
+    color: var(--activeTextColor);
+    text-transform: capitalize;
+    font-size: 1rem;
+    cursor: pointer;
+    letter-spacing: 1px;
+    border-radius: 2rem;
+    padding: 0.3rem 0.7rem;
+    transition: all 0.4s ease;
+
+    &--active,
+    &:hover {
+      background-color: var(--activeTextColor);
+      color: var(--textColor);
+    }
+  }
+}

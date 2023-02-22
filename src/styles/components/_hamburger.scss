@@ -9,13 +9,13 @@
 
   @include tablet {
     display: flex;
-    margin: 1rem;
+    margin: 0.5rem;
   }
 
   .ham-bar {
     width: 70%;
     height: 4px;
-    background-color: white;
+    background-color: var(--textColor);
     border-radius: 25px;
     position: absolute;
     top: 50%;

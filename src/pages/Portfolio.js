@@ -1,10 +1,16 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Categories from '../components/Portfolio/Categories';
 import SectionHeadLine from '../components/SectionHeadline';
 import { useGlobalContext } from '../context/context';
+import '../styles/pages/_portfolio-section.scss';
+import menu from '../utils/portfolioData/Menu';
+
+const allCategories = ['all', ...new Set(menu.map((item) => item.category))];
 
 const Portfolio = () => {
   const portfolioRef = useRef();
   const { dispatch } = useGlobalContext();
+  const [categories, setCategories] = useState(allCategories);
 
   useEffect(() => {
     getPosition();
@@ -18,7 +24,7 @@ const Portfolio = () => {
   return (
     <section className="portfolio" id="portfolio" ref={portfolioRef}>
       <SectionHeadLine headline={'portfolio'} subtext={`My projects`} />
-      <p>portfolio</p>
+      <Categories categories={categories} />
     </section>
   );
 };

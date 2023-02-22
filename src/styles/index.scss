@@ -3,6 +3,7 @@
 html {
   scroll-behavior: smooth;
   //font-size: 62.5%;
+  background: #212121;
 }
 
 * {
@@ -58,8 +59,6 @@ html {
     }
 
     .navbar-items {
-      // width: 70%;
-      //max-width: 30rem;
       display: flex;
       color: var(--textColor);
       overflow: hidden;
@@ -121,6 +120,7 @@ html {
           }
 
           @include tablet {
+            margin-top: 1rem;
             margin-bottom: 1rem;
             padding: 0;
           }
@@ -141,6 +141,9 @@ html {
 
         li {
           margin-bottom: 10px;
+          @include tablet {
+            margin: 0.5rem 0;
+          }
         }
       }
 
@@ -164,12 +167,4 @@ html {
   @include mobile {
     padding: 0.3rem;
   }
-}
-
-#portfolio {
-  background-color: #141414;
-  width: 100%;
-  position: relative;
-  height: 100vh;
-  padding: 8rem 0;
 }
