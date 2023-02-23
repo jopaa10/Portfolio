@@ -1,6 +1,6 @@
-import '../styles/_loader.scss';
+import '../styles/_skills-loader.scss';
 
-const Loader = ({ name, value }) => {
+const SkillsLoader = ({ name, value }) => {
   return (
     <div className="skills">
       <p className="skills__name">{name}</p>
@@ -17,4 +17,4 @@ const Loader = ({ name, value }) => {
   );
 };
 
-export default Loader;
+export default SkillsLoader;

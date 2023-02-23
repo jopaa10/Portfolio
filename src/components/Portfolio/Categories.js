@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../../styles/components/_categories.scss';
 
-const Categories = ({ categories }) => {
+const Categories = ({ categories, filterMenuItems }) => {
   const [activeCategory, setActiveCategory] = useState('all');
 
   const handleActiveCategory = (category) => {
@@ -18,7 +18,10 @@ const Categories = ({ categories }) => {
             className={`btn-container__filter-btn ${
               activeCategory === category ? 'btn-container__filter-btn--active' : ''
             }`}
-            onClick={() => handleActiveCategory(category)}>
+            onClick={() => {
+              handleActiveCategory(category);
+              filterMenuItems(category);
+            }}>
             {category}
           </button>
         );

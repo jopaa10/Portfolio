@@ -8,6 +8,10 @@
     width: 100%;
   }
 
+  @include mobile {
+    width: 90%;
+  }
+
   &__name {
     font-size: 1rem;
     color: white;
