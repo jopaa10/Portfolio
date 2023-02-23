@@ -11,6 +11,14 @@
   background-color: var(--activeTextColor);
   border-radius: 50%;
   transition: width 0.2s linear, height 0.2s linear, margin 0.2s linear, opacity 0.2s linear;
+
+  &--active {
+    display: none;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
 }
 
 .cursor {
@@ -27,7 +35,7 @@
   pointer-events: none;
   transition-property: opacity;
 
-  &--clicked {
+  &--hover {
     position: fixed;
     background-color: #f3a650;
     width: 50px;
@@ -38,5 +46,12 @@
     margin-top: -25px;
     margin-left: -25px;
     pointer-events: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cursor,
+  .cursor-dot {
+    display: none;
   }
 }

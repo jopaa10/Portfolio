@@ -1,14 +1,19 @@
+@import '../mix-ins';
+
 .menu-container {
   display: flex;
   margin: 0 auto;
   justify-content: center;
-  //gap: 1rem;
   align-items: center;
   flex-wrap: wrap;
 
   &__item {
     margin: 1.5rem;
     position: relative;
+
+    @include mobile {
+      margin: 1rem 2.5rem;
+    }
 
     &__photo {
       height: 17rem;

@@ -44,14 +44,13 @@ const Cursor = () => {
   return (
     <>
       <div
-        className="cursor-dot"
+        className={`${linkHover ? 'cursor-dot--active' : 'cursor-dot'}`}
         style={{
           left: `${position.x}px`,
-          top: ` ${position.y}px`,
-          display: linkHover ? 'none' : 'block'
+          top: ` ${position.y}px`
         }}></div>
       <div
-        className={`cursor ${linkHover ? 'cursor--clicked' : ''}`}
+        className={`cursor ${linkHover ? 'cursor--hover' : ''}`}
         style={{ left: `${position.x}px`, top: ` ${position.y}px` }}
       />
     </>
