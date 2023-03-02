@@ -9,6 +9,8 @@ const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [activeItem, setActiveItem] = useState('home');
   const { state } = useGlobalContext();
+  const [navbarClass, setNavbarClass] = useState('');
+  const [sliding, setSliding] = useState(false);
 
   const handleShowNavItems = () => {
     setToggleMenu(!toggleMenu);
@@ -21,31 +23,23 @@ const Navbar = () => {
     }
   };
 
-  //   const changeNavColorOnScroll = () => {
-  //     if (state.homePosition > window.scrollY && window.scrollY < state.aboutPosition) {
-  //       setActiveItem('home');
-  //     } else if (state.aboutPosition > window.scrollY && window.scrollY < state.resumePosition) {
-  //       setActiveItem('about');
-  //     } else if (state.resumePosition > window.scrollY && window.scrollY < state.portfolioPosition) {
-  //       setActiveItem('resume');
-  //     } else if (state.portfolioPosition > window.scrollY && window.scrollY < state.skillsPosition) {
-  //       setActiveItem('portfolio');
-  //     } else if (state.skillsPosition > window.scrollY) {
-  //       setActiveItem('skills');
-  //     }
-  //   };
+  const changeNavbarPadding = () => {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        setSliding(true);
+        setNavbarClass('navbar navbar__sliding');
+      } else {
+        setSliding(false);
+      }
+    });
+  };
 
-  //   useEffect(() => {
-  //     changeNavColorOnScroll();
-  //     window.addEventListener('scroll', changeNavColorOnScroll);
-
-  //     return () => {
-  //       window.removeEventListener('scroll', changeNavColorOnScroll);
-  //     };
-  //   }, []);
+  useEffect(() => {
+    changeNavbarPadding();
+  }, []);
 
   return (
-    <header className="navbar">
+    <header className={!sliding ? 'navbar' : navbarClass}>
       <SectionWrapper>
         <div className="navbar-section">
           <section className="navbar-resp">

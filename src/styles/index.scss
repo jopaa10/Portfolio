@@ -34,6 +34,15 @@ html {
   right: 0;
   z-index: 10;
   box-shadow: 0 0.125rem 0.25rem rgba(255, 255, 255, 0.13);
+  transition: padding 500ms ease-out 0ms;
+
+  &__sliding {
+    padding: 1rem 0;
+
+    @include tablet {
+      padding: 0.25rem 0 !important;
+    }
+  }
 
   .navbar-section {
     display: flex;
@@ -65,6 +74,7 @@ html {
       overflow: hidden;
       list-style: none;
       position: relative;
+      padding: 0;
 
       &__link {
         padding: 5px 18px;
@@ -153,16 +163,18 @@ html {
         margin: 0;
         flex-direction: column;
         display: none;
+        padding: 0 2.1rem;
       }
     }
   }
+
   @include tablet {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     min-height: 5.5rem;
     flex-wrap: wrap;
-    padding: 0.5rem;
+    padding: 0.5rem 0;
     position: fixed;
   }
 

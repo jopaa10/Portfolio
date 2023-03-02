@@ -1,6 +1,5 @@
 import '../../styles/components/_menu-portfolio.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlassPlus } from '@fortawesome/free-solid-svg-icons';
 
 const Menu = ({ menuItems }) => {
   return (

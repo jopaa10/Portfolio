@@ -5,6 +5,7 @@ import SectionHeadLine from '../components/SectionHeadline';
 import { useGlobalContext } from '../context/context';
 import '../styles/pages/_about-section.scss';
 import SectionWrapper from '../components/SectionWrapper';
+import cv_download from '../assets/doc/CV-Josipa_Znaor.pdf';
 
 const About = () => {
   const aboutRef = useRef();
@@ -42,15 +43,15 @@ const About = () => {
                   <span>Age:</span> 25
                 </li>
                 <li>
-                  <span>Email:</span> Josipa Znaor
+                  <span>Email:</span> josipa.znaor@gmail.com
                 </li>
                 <li>
-                  <span>Address:</span> Josipa Znaor
+                  <span>Address:</span> Franje Tudmana 28, Hrscevani, 21260, Imotski
                 </li>
               </ul>
             </div>
             <div className="about-me__cv">
-              <a href="#" className="about-me__cv__btn">
+              <a href={cv_download} download={'CV-Josipa_Znaor'} className="about-me__cv__btn">
                 <FontAwesomeIcon icon={faInbox} />
                 <p> Download CV </p>
               </a>
