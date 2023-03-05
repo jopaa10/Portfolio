@@ -46,7 +46,7 @@ const About = () => {
                   <span>Email:</span> josipa.znaor@gmail.com
                 </li>
                 <li>
-                  <span>Address:</span> Franje Tudmana 28, Hrscevani, 21260, Imotski
+                  <span>Address:</span> Franje Tuđmana 28, Hršćevani, 21260, Imotski
                 </li>
               </ul>
             </div>

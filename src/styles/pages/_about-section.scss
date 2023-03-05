@@ -24,7 +24,7 @@
   }
 
   .about-me {
-    width: 50%;
+    width: 60%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -43,6 +43,10 @@
         flex-wrap: wrap;
         justify-content: space-between;
 
+        @include tablet {
+          justify-content: center;
+        }
+
         li {
           display: flex;
           margin: 1rem 0;
@@ -52,6 +56,10 @@
             display: block;
             min-width: 5rem;
             color: var(--activeTextColor);
+          }
+
+          @media (max-width: 991px) {
+            flex-basis: 100%;
           }
         }
       }
@@ -98,6 +106,12 @@
           width: 100%;
         }
       }
+    }
+
+    @include tablet {
+      width: 100%;
+      padding: 0 3rem;
+      align-items: center;
     }
   }
 

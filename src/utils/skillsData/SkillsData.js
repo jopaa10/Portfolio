@@ -6,13 +6,13 @@ export default [
   },
   {
     id: 2,
-    name: 'CSS',
+    name: 'CSS / SCSS',
     value: '75%'
   },
   {
     id: 3,
     name: 'React JS',
-    value: '60%'
+    value: '70%'
   },
   {
     id: 4,
@@ -23,5 +23,20 @@ export default [
     id: 5,
     name: 'Node JS',
     value: '30%'
+  },
+  {
+    id: 6,
+    name: 'Svelte / SvelteKit',
+    value: '65%'
+  },
+  {
+    id: 7,
+    name: 'Figma',
+    value: '75%'
+  },
+  {
+    id: 8,
+    name: 'Nature / Landscape photography',
+    value: '80%'
   }
 ];

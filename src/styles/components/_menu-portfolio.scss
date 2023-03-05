@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  width: 100%;
 
   &__item {
     margin: 1.5rem;
@@ -18,10 +19,16 @@
     &__photo {
       height: 17rem;
       max-width: 17rem;
-      width: 100%;
+      width: 17rem;
       object-fit: cover;
       display: block;
       border-radius: 0.75rem;
+      min-width: 15rem;
+
+      @include mobile {
+        width: 15rem;
+        min-width: 10rem;
+      }
     }
 
     &__info {

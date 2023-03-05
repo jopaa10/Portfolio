@@ -40,7 +40,11 @@ html {
     padding: 1rem 0;
 
     @include tablet {
-      padding: 0.25rem 0 !important;
+      padding: 0.5rem 0 !important;
+    }
+
+    @include mobile {
+      padding: 0.1rem 0 !important;
     }
   }
 
@@ -174,11 +178,11 @@ html {
     align-items: center;
     min-height: 5.5rem;
     flex-wrap: wrap;
-    padding: 0.5rem 0;
+    padding: 1rem 0;
     position: fixed;
   }
 
   @include mobile {
-    padding: 0.3rem;
+    padding: 0.5rem 0;
   }
 }
