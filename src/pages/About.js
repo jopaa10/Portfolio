@@ -30,9 +30,10 @@ const About = () => {
           </div>
           <div className="about-me">
             <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas delectus incidunt omnis
-              odit iusto exercitationem magnam cum. Impedit perferendis quibusdam molestias
-              exercitationem neque dolore, recusandae magnam ipsam dicta, eaque officiis.
+              {`I am a frontend developer. Now, I work in Svelte and SvelteKit, but a lot of time I
+              work as a React JS developer. Also for my master's degree, I made MERN stack
+              application for Android Users. In my free time, I take photos, especially I nature and urban cities. I like to play and
+               watch football as well as tennis, skiing.`}
             </p>
             <div className="about-me__info">
               <ul>

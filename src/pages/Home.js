@@ -79,7 +79,7 @@ const Home = () => {
             <p>{`I'm`}</p>
             <Typewriter
               loop
-              words={['Web Developer', 'Photography lover']}
+              words={['a Web Developer', 'a Photography lover']}
               cursor
               cursorBlinking={false}
               typeSpeed={40}
@@ -87,16 +87,25 @@ const Home = () => {
             />
           </h1>
           <div className="social-icons">
-            <a href="#" aria-label="Social media links">
+            <a
+              href="https://linkedin.com/in/josipa-znaor-105692222"
+              target={'_blank'}
+              rel={'noreferrer'}
+              aria-label="Social media links">
               <FontAwesomeIcon icon={faLinkedinIn} />
             </a>
-            <a href="#" aria-label="Social media links">
-              <FontAwesomeIcon icon={faFacebookF} />
-            </a>
-            <a href="#" aria-label="Social media links">
+            <a
+              href="https://www.instagram.com/timeless.treasur3s"
+              target={'_blank'}
+              rel={'noreferrer'}
+              aria-label="Social media links">
               <FontAwesomeIcon icon={faInstagram} />
             </a>
-            <a href="#" aria-label="Social media links">
+            <a
+              href="https://github.com/jopaa10"
+              target={'_blank'}
+              rel={'noreferrer'}
+              aria-label="Social media links">
               <FontAwesomeIcon icon={faGithub} />
             </a>
           </div>
