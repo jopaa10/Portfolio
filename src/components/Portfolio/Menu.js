@@ -17,26 +17,28 @@ const Menu = ({ menuItems }) => {
               </span>
               <h4>{title}</h4>
               <p>{category}</p>
-              <div className="live-site">
-                {liveSite && (
+              {category === 'development' && (
+                <div className="live-site">
+                  {liveSite && (
+                    <span>
+                      <FontAwesomeIcon icon={faWindowMaximize} />
+                      <a
+                        href={liveSite}
+                        target={'_blank'}
+                        rel={'noreferrer'}
+                        aria-label="live site link">
+                        Live site
+                      </a>
+                    </span>
+                  )}
                   <span>
-                    <FontAwesomeIcon icon={faWindowMaximize} />
-                    <a
-                      href={liveSite}
-                      target={'_blank'}
-                      rel={'noreferrer'}
-                      aria-label="live site link">
-                      Live site
+                    <FontAwesomeIcon icon={faGithub} />
+                    <a href={link} target={'_blank'} rel={'noreferrer'} aria-label="live site link">
+                      Source code
                     </a>
                   </span>
-                )}
-                <span>
-                  <FontAwesomeIcon icon={faGithub} />
-                  <a href={link} target={'_blank'} rel={'noreferrer'} aria-label="live site link">
-                    Source code
-                  </a>
-                </span>
-              </div>
+                </div>
+              )}
             </div>
           </article>
         );
