@@ -35,7 +35,7 @@
       width: 0%;
       background-color: var(--activeTextColor);
       border-radius: 20px;
-      transition: 1s ease;
+      transition: all 1000ms ease 0ms;
 
       &::before {
         content: '';

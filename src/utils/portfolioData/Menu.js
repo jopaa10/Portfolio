@@ -7,7 +7,8 @@ const menu = [
     img: require('../../assets/images/photoBook.png'),
     title: 'photo book',
     icon: faGithub,
-    link: 'https://photo-page.netlify.app/'
+    link: 'https://github.com/jopaa10/HCI_Project',
+    liveSite: 'https://photo-page.netlify.app/'
   },
   {
     id: 2,
@@ -23,7 +24,8 @@ const menu = [
     img: require('../../assets/images/randomUsers.png'),
     title: 'random users',
     icon: faGithub,
-    link: 'https://github.com/jopaa10/RandomUsers'
+    link: 'https://github.com/jopaa10/RandomUsers',
+    liveSite: ''
   },
   {
     id: 4,
@@ -39,7 +41,8 @@ const menu = [
     img: require('../../assets/images/portfolio.png'),
     title: 'portfolio',
     icon: faGithub,
-    link: 'https://github.com/jopaa10/Portfolio'
+    link: 'https://github.com/jopaa10/Portfolio',
+    liveSite: ''
   },
   {
     id: 6,
@@ -47,7 +50,8 @@ const menu = [
     img: require('../../assets/images/pagination.png'),
     title: 'pagination',
     icon: faGithub,
-    link: 'https://github.com/jopaa10/Pagination'
+    link: 'https://github.com/jopaa10/Pagination',
+    liveSite: ''
   },
   {
     id: 7,
@@ -55,7 +59,8 @@ const menu = [
     img: require('../../assets/images/photoBook.png'),
     title: 'star wars',
     icon: faGithub,
-    link: 'https://github.com/jopaa10/starWars'
+    link: 'https://github.com/jopaa10/starWars',
+    liveSite: ''
   },
   {
     id: 8,
@@ -63,7 +68,8 @@ const menu = [
     img: require('../../assets/images/news.png'),
     title: 'news',
     icon: faGithub,
-    link: 'https://github.com/jopaa10/News'
+    link: 'https://github.com/jopaa10/News',
+    liveSite: ''
   },
   {
     id: 9,
@@ -71,7 +77,8 @@ const menu = [
     img: require('../../assets/images/cartContext.png'),
     title: 'cart context',
     icon: faGithub,
-    link: 'https://github.com/jopaa10/CartContext'
+    link: 'https://github.com/jopaa10/CartContext',
+    liveSite: ''
   },
   {
     id: 10,
@@ -79,7 +86,8 @@ const menu = [
     img: require('../../assets/images/imotski.jpeg'),
     title: 'imotski and region',
     icon: faGithub,
-    link: 'https://github.com/jopaa10/Imotski---Android-Project'
+    link: 'https://github.com/jopaa10/Imotski---Android-Project',
+    liveSite: ''
   },
   {
     id: 11,

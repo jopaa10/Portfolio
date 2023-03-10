@@ -68,6 +68,30 @@
         margin-top: 1.25rem;
       }
 
+      .live-site {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        margin-top: 0.5rem;
+        width: 100%;
+
+        span {
+          display: flex;
+          justify-content: center;
+          gap: 0.5rem;
+
+          a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+          }
+        }
+      }
+
       &:hover .glass-icon {
         transform: rotate(360deg);
         opacity: 1;
@@ -87,6 +111,12 @@
         transition: 0.7s ease;
         transition-delay: 0.4s;
         margin-top: 0;
+      }
+
+      &:hover .live-site {
+        opacity: 1;
+        transition: 0.9s ease;
+        transition-delay: 0.4s;
       }
     }
 
