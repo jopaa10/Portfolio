@@ -1,7 +1,7 @@
 import '../../styles/components/_menu-portfolio.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowMaximize } from '@fortawesome/free-regular-svg-icons';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 const Menu = ({ menuItems }) => {
   return (
@@ -17,7 +17,7 @@ const Menu = ({ menuItems }) => {
               </span>
               <h4>{title}</h4>
               <p>{category}</p>
-              {category === 'development' && (
+              {category === 'development' ? (
                 <div className="live-site">
                   {liveSite && (
                     <span>
@@ -33,8 +33,25 @@ const Menu = ({ menuItems }) => {
                   )}
                   <span>
                     <FontAwesomeIcon icon={faGithub} />
-                    <a href={link} target={'_blank'} rel={'noreferrer'} aria-label="live site link">
+                    <a
+                      href={link}
+                      target={'_blank'}
+                      rel={'noreferrer'}
+                      aria-label="github site link">
                       Source code
+                    </a>
+                  </span>
+                </div>
+              ) : (
+                <div className="live-site">
+                  <span>
+                    <FontAwesomeIcon icon={faInstagram} />
+                    <a
+                      href={link}
+                      target={'_blank'}
+                      rel={'noreferrer'}
+                      aria-label="instagram site link">
+                      View on Instagram
                     </a>
                   </span>
                 </div>

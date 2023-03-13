@@ -8,24 +8,30 @@
   padding: 10rem 0;
 }
 
+.image-block {
+  min-width: 20rem;
+  margin-left: 5rem;
+  align-self: center;
+
+  @include tablet {
+    margin-left: 0;
+    min-width: 0;
+  }
+}
+
 .container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
-  padding: 5rem 0;
-  margin: 0 4rem;
-  gap: 10rem;
-
-  .image {
-    width: 30%;
-    display: flex;
-    justify-content: center;
-  }
+  padding: 4rem 0;
+  margin: 0 1rem;
+  flex-basis: 50%;
+  //gap: 2rem;
 
   .about-me {
-    width: 60%;
+    //width: 60%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -36,6 +42,9 @@
 
     &__info {
       padding: 2rem 0;
+      word-break: break-word;
+      width: inherit;
+      line-height: 2;
 
       ul {
         list-style: none;

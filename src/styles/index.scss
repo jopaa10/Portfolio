@@ -70,6 +70,16 @@ html {
       text-align: center;
       min-width: 8rem;
       letter-spacing: 1px;
+
+      p {
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+        font-size: 35px;
+        line-height: 60px;
+        transition: 0.4s ease;
+        margin: 0 1rem;
+      }
     }
 
     .navbar-items {
@@ -91,10 +101,10 @@ html {
 
         a {
           text-decoration: none;
-          //color: var(--textColor);
           position: relative;
           padding: 0.5rem 0;
           letter-spacing: 1px;
+          font-weight: 700;
 
           &:before {
             content: '';

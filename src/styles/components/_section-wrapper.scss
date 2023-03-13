@@ -1,7 +1,20 @@
+@import '../mix-ins';
+
 .section-wrapper {
   max-width: 1140px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   height: inherit;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__about {
+    flex-direction: row;
+
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 }

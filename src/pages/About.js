@@ -6,6 +6,7 @@ import { useGlobalContext } from '../context/context';
 import '../styles/pages/_about-section.scss';
 import SectionWrapper from '../components/SectionWrapper';
 import cv_download from '../assets/doc/CV-Josipa_Znaor.pdf';
+import ProfileImage from '../components/ProfileImage';
 
 const About = () => {
   const aboutRef = useRef();
@@ -22,12 +23,12 @@ const About = () => {
 
   return (
     <section className="about" id="about" ref={aboutRef}>
-      <SectionWrapper>
-        <SectionHeadLine headline={'about me'} subtext={`I'm Josipa`} />
+      <SectionWrapper isAbout={true}>
+        <div className="image-block">
+          <ProfileImage />
+        </div>
         <div className="container">
-          <div className="image">
-            <p>image will be here</p>
-          </div>
+          <SectionHeadLine headline={'about me'} subtext={`I'm Josipa`} />
           <div className="about-me">
             <p>
               {`I am a frontend developer. Now, I work in Svelte and SvelteKit, but a lot of time I
