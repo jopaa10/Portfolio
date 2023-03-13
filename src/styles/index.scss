@@ -78,7 +78,11 @@ html {
         font-size: 35px;
         line-height: 60px;
         transition: 0.4s ease;
-        margin: 0 2rem;
+        margin: 0 1rem;
+
+        @include tablet {
+          margin: 0 2rem;
+        }
       }
     }
 
@@ -91,7 +95,7 @@ html {
       padding: 0;
 
       &__link {
-        padding: 5px 18px;
+        padding: 5px 15px;
         color: var(--textColor);
         text-decoration: none;
         text-transform: uppercase;
