@@ -11,6 +11,12 @@ import ProfileImage from '../components/ProfileImage';
 const About = () => {
   const aboutRef = useRef();
   const { dispatch } = useGlobalContext();
+  const myBirthYear = 1997;
+
+  const currentYear = new Date().getFullYear();
+  const age = currentYear - myBirthYear;
+
+  console.log(currentYear);
 
   useEffect(() => {
     getPosition();
@@ -42,7 +48,7 @@ const About = () => {
                   <span>Name:</span> Josipa Znaor
                 </li>
                 <li>
-                  <span>Age:</span> 25
+                  <span>Age:</span> {age}
                 </li>
                 <li>
                   <span>Email:</span> josipa.znaor@gmail.com
