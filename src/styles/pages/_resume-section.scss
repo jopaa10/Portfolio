@@ -1,31 +1,17 @@
 @import '../mix-ins';
 
 #resume {
-  background-color: #000000;
   width: 100%;
   position: relative;
   height: auto;
-  padding: 8rem 0;
+  padding: 5rem 0;
+
+  @include tablet {
+    padding: 5rem 2rem;
+  }
 
   .content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
     height: fit-content;
-    margin: 4rem 0.5rem;
     overflow: hidden;
-
-    @include tablet {
-      width: 90%;
-      align-self: center;
-      font-size: 1rem;
-    }
-
-    @include mobile {
-      width: 80%;
-      align-self: center;
-      font-size: 0.75rem;
-    }
   }
 }

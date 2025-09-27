@@ -1,202 +1,393 @@
 @import './mix-ins';
+@import './utils';
+@import './animations';
 
 html {
   scroll-behavior: smooth;
-  //font-size: 62.5%;
-  background: #212121;
+  font-size: 100%; // 1rem = 16px
+
+  @include tablet {
+    font-size: 75%; // 1rem = 12px
+  }
+
+  // Mobile
+  @include mobile {
+    font-size: 50%; // 1rem = 8px
+  }
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+body {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(
+    135deg,
+    #0c0c0c 0%,
+    #1a1a2e 25%,
+    #16213e 50%,
+    #0f3460 75%,
+    #533483 100%
+  );
+  color: var(--glass-text-color);
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+  overscroll-behavior: none;
+}
+
+// --------------------
+// CSS Variables
+// --------------------
 :root {
-  margin: 0;
-  --textColor: white;
-  //--activeTextColor: #cb532e;
-  --activeTextColor: #d35f3c;
-  --borderColor: #fcae8c;
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  --glass-text-color: #fff;
+}
+
+// --------------------
+// Typography
+// --------------------
+
+// Headings
+h1 {
+  font-size: 3.2rem; // Desktop: 51.2px (16px * 3.2)
+  line-height: 1.2;
+  font-weight: 700;
+
+  @include tablet {
+    font-size: 2.8rem; // Tablet: 33.6px (12px * 2.8)
+  }
+
+  @include mobile {
+    font-size: 2.4rem; // Mobile: 19.2px (8px * 2.4)
+  }
+}
+
+h2 {
+  font-size: 2.8rem; // Desktop: 44.8px
+  line-height: 1.3;
+  font-weight: 700;
+
+  @include tablet {
+    font-size: 2.4rem; // Tablet: 28.8px
+  }
+
+  @include mobile {
+    font-size: 4rem; // Mobile: 16px
+  }
+}
+
+h3 {
+  font-size: 1.8rem;
+  line-height: 1.3;
+  font-weight: 600;
+
+  @include tablet {
+    font-size: 2.8rem;
+  }
+
+  @include mobile {
+    font-size: 2.4rem;
+  }
+}
+
+h4 {
+  font-size: 2rem; // Desktop: 32px
+  line-height: 1.4;
+  font-weight: 600;
+
+  @include tablet {
+    font-size: 1.3rem; // Tablet: 21.6px
+  }
+
+  @include mobile {
+    font-size: 1.6rem; // Mobile: 12.8px
+  }
+}
+
+// Span
+span {
+  font-size: 1rem; // Desktop: 22.4px
+
+  @include tablet {
+    font-size: 1.4rem; // Tablet: 14.4px
+  }
+
+  @include mobile {
+    font-size: 1.8rem; // Mobile: 8px
+  }
+}
+
+// Links / a
+a {
+  font-size: 1rem; // Desktop: 25.6px
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  @include tablet {
+    font-size: 1.2rem; // Tablet: 16.8px
+  }
+
+  @include mobile {
+    font-size: 1.5rem; // Mobile: 9.6px
+  }
+}
+
+// Buttons (text inside buttons inherits from a or span)
+button {
+  font-size: 1rem; // Desktop
+  font-weight: 600;
+
+  @include tablet {
+    font-size: 1.2rem;
+  }
+
+  @include mobile {
+    font-size: 1.5rem;
+  }
+}
+
+p {
+  font-size: 1rem; // Desktop: 24px
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+
+  @include tablet {
+    font-size: 1.3rem; // Tablet: 19.2px (1.6 * 12px)
+  }
+
+  @include mobile {
+    font-size: 1.7rem; // Mobile: 16px (2 * 8px)
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+.bg-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+
+  .floating-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    .shape {
+      position: absolute;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      animation: float 20s infinite ease-in-out;
+
+      &.shape-1 {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+
+      &.shape-2 {
+        width: 120px;
+        height: 60px;
+        border-radius: 30px;
+        top: 60%;
+        right: 15%;
+        animation-delay: -5s;
+      }
+
+      &.shape-3 {
+        width: 100px;
+        height: 100px;
+        border-radius: 20px;
+        top: 80%;
+        left: 20%;
+        animation-delay: -10s;
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+.navbar-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  z-index: 1100;
+  font-size: 2rem;
+  font-weight: 900;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  padding: 1rem 1.5rem;
+
+  transition: transform 0.3s ease;
+
   p {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin: 0;
+    font-size: 2rem;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.navbar-overlay {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  transform: scale(0);
+  transition: transform 0.6s ease;
+  z-index: 1000;
+
+  &--active {
+    transform: scale(100);
+  }
+
+  @include desktop {
+    display: none;
   }
 }
 
 .navbar {
-  background-color: black;
-  width: auto;
-  min-height: 2.5rem;
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 1.5rem 0;
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  box-shadow: 0 0.125rem 0.25rem rgba(255, 255, 255, 0.13);
-  transition: padding 500ms ease-out 0ms;
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border-radius: 2rem;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  padding: 1rem 1.5rem;
 
-  &__sliding {
-    padding: 1rem 0;
+  @include tablet {
+    top: -5rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 
     @include tablet {
-      padding: 0.5rem 0 !important;
-    }
-
-    @include mobile {
-      padding: 0.1rem 0 !important;
+      display: none;
     }
   }
 
-  .navbar-section {
+  &--open {
+    @include tablet {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      background: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      border: none;
+    }
+  }
+
+  .navbar-items {
     display: flex;
-    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      text-transform: capitalize;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out;
+      position: relative;
+      cursor: pointer;
+
+      a {
+        text-decoration: none;
+        position: relative;
+        padding-bottom: 0.15rem;
+        letter-spacing: 1.2px;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: var(--accent-gradient);
+          transition: width 0.3s ease;
+        }
+
+        &:hover::after,
+        &.active::after {
+          width: 100%;
+        }
+      }
+    }
 
     @include tablet {
       flex-direction: column;
-      padding: 0.5rem 0;
-    }
-
-    .navbar-resp {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: auto;
-    }
-
-    .navbar-logo {
-      color: white;
-      text-transform: uppercase;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -200%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+      width: 100%;
       text-align: center;
-      min-width: 8rem;
-      letter-spacing: 1px;
 
-      p {
-        font-weight: 900;
-        text-transform: uppercase;
-        letter-spacing: -1px;
-        font-size: 35px;
-        line-height: 60px;
-        transition: 0.4s ease;
-        margin: 0 1rem;
-
-        @include tablet {
-          margin: 0 2rem;
-        }
-      }
-    }
-
-    .navbar-items {
-      display: flex;
-      color: var(--textColor);
-      overflow: hidden;
-      list-style: none;
-      position: relative;
-      padding: 0;
-
-      &__link {
-        padding: 5px 15px;
-        color: var(--textColor);
-        text-decoration: none;
-        text-transform: uppercase;
-        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-          border-color 0.15s ease-in-out;
-        position: relative;
+      li {
+        margin: 2rem 0;
 
         a {
-          text-decoration: none;
-          position: relative;
-          padding: 0.5rem 0;
-          letter-spacing: 1px;
-          font-weight: 700;
-
-          &:before {
-            content: '';
-            position: absolute;
-            top: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-            border: solid transparent;
-            border-width: 0px;
-            border-top-color: var(--activeTextColor);
-            transition: 0.3s ease-in;
-          }
-
-          &:hover {
-            color: var(--activeTextColor);
-          }
-
-          &:hover:before {
-            border-width: 5px;
-          }
-        }
-
-        &--active {
-          text-decoration: none;
-          text-transform: uppercase;
-          //padding: 0 15px;
-          color: var(--activeTextColor);
-          position: relative;
-
-          a {
-            text-decoration: none;
-            text-transform: uppercase;
-            color: var(--activeTextColor);
-            position: relative;
-          }
-
-          &:before {
-            border-width: 5px !important;
-          }
-
-          @include tablet {
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-            padding: 0;
-          }
-        }
-
-        &:hover {
-          cursor: pointer;
-        }
-
-        @include tablet {
-          margin-bottom: 1rem;
-          padding: 0;
+          font-size: 2rem;
         }
       }
 
-      &--resp {
-        display: flex !important;
-
-        li {
-          margin-bottom: 10px;
-          @include tablet {
-            margin: 0.5rem 0;
-          }
-        }
-      }
-
-      @include tablet {
-        margin: 0;
-        flex-direction: column;
-        display: none;
-        padding: 0 2.1rem;
+      &--open {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        pointer-events: auto;
       }
     }
-  }
-
-  @include tablet {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 5.5rem;
-    flex-wrap: wrap;
-    padding: 1rem 0;
-    position: fixed;
-  }
-
-  @include mobile {
-    padding: 0.5rem 0;
   }
 }

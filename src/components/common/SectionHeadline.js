@@ -1,4 +1,4 @@
-import '../styles/components/_section-headline.scss';
+import '../../styles/components/_section-headline.scss';
 
 const SectionHeadLine = ({ headline, subtext }) => {
   return (

@@ -1,4 +1,4 @@
-import '../styles/components/_section-wrapper.scss';
+import '../../styles/components/_section-wrapper.scss';
 
 const SectionWrapper = ({ children, isAbout }) => {
   return (

@@ -1,22 +1,16 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInbox } from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useRef } from 'react';
-import SectionHeadLine from '../components/SectionHeadline';
-import { useGlobalContext } from '../context/context';
 import '../styles/pages/_about-section.scss';
-import SectionWrapper from '../components/SectionWrapper';
-import cv_download from '../assets/doc/CV-Josipa_Znaor.pdf';
-import ProfileImage from '../components/ProfileImage';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useEffect, useRef } from 'react';
+import SectionHeadLine from '../components/common/SectionHeadline';
+import { useGlobalContext } from '../context/context';
+import AboutMeInfoCard from '../components/About/AboutMeCard';
+import { SelfDescription } from '../utils/aboutData/SelfDescriptionData';
+import { INFO_DATA } from '../utils/aboutData/InfoData';
+import { socialLinks } from '../utils/aboutData/SocialMediaData';
 
 const About = () => {
   const aboutRef = useRef();
   const { dispatch } = useGlobalContext();
-  const myBirthYear = 1997;
-
-  const currentYear = new Date().getFullYear();
-  const age = currentYear - myBirthYear;
-
-  console.log(currentYear);
 
   useEffect(() => {
     getPosition();
@@ -29,44 +23,38 @@ const About = () => {
 
   return (
     <section className="about" id="about" ref={aboutRef}>
-      <SectionWrapper isAbout={true}>
-        <div className="image-block">
-          <ProfileImage />
-        </div>
-        <div className="container">
-          <SectionHeadLine headline={'about me'} subtext={`I'm Josipa`} />
-          <div className="about-me">
-            <p>
-              {`I am a frontend developer. Now, I work in Svelte and SvelteKit, but a lot of time I
-              work as a React JS developer. Also for my master's degree, I made MERN stack
-              application for Android Users. In my free time, I take photos, especially I nature and urban cities. I like to play and
-               watch football as well as tennis, skiing.`}
-            </p>
-            <div className="about-me__info">
-              <ul>
-                <li>
-                  <span>Name:</span> Josipa Znaor
-                </li>
-                <li>
-                  <span>Age:</span> {age}
-                </li>
-                <li>
-                  <span>Email:</span> josipa.znaor@gmail.com
-                </li>
-                <li>
-                  <span>Address:</span> Franje Tuđmana 28, Hršćevani, 21260, Imotski
-                </li>
-              </ul>
-            </div>
-            <div className="about-me__cv">
-              <a href={cv_download} download={'CV-Josipa_Znaor'} className="about-me__cv__btn">
-                <FontAwesomeIcon icon={faInbox} />
-                <p> Download CV </p>
-              </a>
+      <SectionHeadLine headline={'about me'} subtext={`The story behind the code`} />
+      <div className="glass-card">
+        <div className="about__me">
+          <div>
+            <div className="image-block">👩‍💻</div>
+            <div className="social-icons">
+              {socialLinks.map((item) => (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  target={item.external ? '_blank' : undefined}
+                  rel={item.external ? 'noreferrer' : undefined}
+                  aria-label={item.label}
+                  download={item.download ? item.download : undefined}
+                  className={item.download ? 'about-me__cv__btn' : undefined}>
+                  <FontAwesomeIcon icon={item.icon} />
+                </a>
+              ))}
             </div>
           </div>
+
+          <div>
+            <h3>{`Hello, I'm Josipa`}</h3>
+            <p style={{ whiteSpace: 'pre-line' }}>{SelfDescription}</p>
+          </div>
         </div>
-      </SectionWrapper>
+        <div className="info">
+          {INFO_DATA.map((infoItem) => (
+            <AboutMeInfoCard key={infoItem.title} {...infoItem} />
+          ))}
+        </div>
+      </div>
     </section>
   );
 };

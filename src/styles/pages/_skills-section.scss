@@ -1,24 +1,109 @@
 @import '../mix-ins';
 
 #skills {
-  background-color: #000000;
   width: 100%;
   position: relative;
   height: auto;
-  padding: 10rem 0;
+  padding: 5rem 2rem;
 
   .skills-box {
-    flex: 0 0 auto;
-    width: auto;
-    padding: 2rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    //padding: 2rem 0;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: max-content;
 
     @include tablet {
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+
+    .skill-category {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 25px;
+      padding: 2rem;
+      text-align: center;
+      height: 100%;
+
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--glass-text-color);
+        text-transform: capitalize;
+
+        @include tablet {
+          font-size: 1.7rem;
+        }
+
+        @include mobile {
+          font-size: 2.4rem;
+        }
+      }
+
+      p {
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+    }
+
+    .progress {
+      margin-bottom: 1rem;
+
+      .progress-item {
+        margin-bottom: 1rem;
+      }
+
+      &__skill {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+
+        .tehnology {
+          font-weight: 600;
+          color: rgba(255, 255, 255, 0.9);
+        }
+
+        .percent {
+          font-weight: 600;
+          color: #61dafb;
+        }
+      }
+
+      &__bar {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        height: 8px;
+        overflow: hidden;
+
+        &--fill {
+          background: linear-gradient(90deg, #61dafb, #21d4fd);
+          width: 80%;
+          height: 100%;
+          border-radius: 10px;
+          animation: skillLoad 2s ease-out;
+        }
+      }
+
+      .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+        margin-top: 1.5rem;
+
+        &__item {
+          background: rgba(255, 255, 255, 0.1);
+          padding: 0.5rem 1rem;
+          border-radius: 20px;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+      }
     }
   }
 }

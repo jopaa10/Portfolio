@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import '../styles/_footer.scss';
-import SectionWrapper from './SectionWrapper';
+import '../../styles/_footer.scss';
+import SectionWrapper from '../common/SectionWrapper';
 
 const Footer = () => {
   const [year, setYear] = useState(null);

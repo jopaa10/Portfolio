@@ -1,0 +1,13 @@
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 30px;
+  padding: 3rem;
+  box-shadow: var(--glass-shadow);
+  transition: all 0.3s ease;
+
+  @include mobile {
+    padding: 1.5rem;
+  }
+}

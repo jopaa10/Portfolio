@@ -1,132 +1,244 @@
 @import '../mix-ins';
 
 #home {
-  background-color: #141414;
   width: 100%;
-  height: 100vh;
-  margin-top: -120px;
-  padding: 6rem 0;
+  padding: 6rem 6rem 5rem 6rem;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  min-height: 95vh;
 
   @include mobile {
-    padding: 0;
-    margin-top: 0;
+    padding-bottom: 8rem;
   }
 
-  .typewriter {
-    width: auto;
-    height: 100%;
-    padding: 0 3rem;
+  .hero-section {
+    display: flex;
+    flex-flow: column wrap;
+    margin: 0 auto;
+    flex: 1;
+    max-width: 600px;
+    z-index: 2;
+
+    &__title {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #fff 0%, #667eea 50%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: titleGlow 3s ease-in-out infinite alternate;
+
+      @include mobile {
+        font-size: clamp(5rem, 8vw, 6rem);
+      }
+    }
+
+    &__subtitle {
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 2rem;
+      font-weight: 300;
+
+      @include mobile {
+        font-size: 2rem;
+      }
+    }
+
+    &__description {
+      //font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+      margin-bottom: 3rem;
+    }
+
+    &__buttons {
+      display: flex;
+      gap: 1.5rem;
+      width: 100%;
+    }
+  }
+
+  .hero-character {
+    flex: 1;
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    color: #fff;
+    align-items: center;
+    position: relative;
+    width: 100%;
 
-    .intro {
-      font-size: 20px;
+    .character-container {
       position: relative;
-      z-index: 1;
+      width: 400px;
+      height: 500px;
 
-      &::before {
-        content: '';
+      .character {
         position: absolute;
-        top: 10px;
-        left: 0;
+        left: 50%;
+        top: 50%;
         transform: translate(-50%, -50%);
-        width: 40px;
-        height: 40px;
-        background-color: var(--activeTextColor);
-        border-radius: 50%;
-        opacity: 0.5;
-        z-index: -1;
-      }
 
-      @include mobile {
-        font-size: 15px;
-      }
-    }
+        &__head {
+          width: 80px;
+          height: 80px;
+          background: var(--accent-gradient);
+          border-radius: 50%;
+          margin: 0 auto 10px;
+          position: relative;
+          animation: headBob 3s ease-in-out infinite;
 
-    .name {
-      font-size: 35px;
+          @include mobile {
+            width: 70px;
+            height: 70px;
+          }
+        }
 
-      span {
-        color: #cb532e;
-      }
+        .character-eyes {
+          position: absolute;
+          top: 25px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          gap: 15px;
 
-      @include mobile {
-        font-size: 25px;
-      }
-    }
+          .eye {
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            animation: blink 4s infinite;
+          }
+        }
 
-    h1 {
-      display: flex;
-      flex-direction: row;
-      font-weight: 700;
-      font-size: 60px;
-      margin: 1rem 0;
-      flex-wrap: wrap;
+        &__body {
+          width: 60px;
+          height: 120px;
+          background: var(--primary-gradient);
+          border-radius: 30px;
+          margin: 0 auto;
+          position: relative;
+          animation: bodyFloat 4s ease-in-out infinite;
 
-      p {
-        margin-right: 1rem;
+          .character-arms {
+            position: absolute;
+            top: 20px;
+            width: 100%;
 
-        @include tablet {
-          margin-right: 0.5rem;
+            .arm {
+              position: absolute;
+              width: 30px;
+              height: 8px;
+              background: var(--secondary-gradient);
+              border-radius: 10px;
+
+              &__left {
+                left: -25px;
+                animation: armWave 2s ease-in-out infinite;
+              }
+
+              &__right {
+                right: -25px;
+                animation: armWave 2s ease-in-out infinite reverse;
+              }
+            }
+          }
+        }
+
+        &__legs {
+          display: flex;
+          gap: 10px;
+          justify-content: center;
+          margin-top: 10px;
+
+          .leg {
+            width: 12px;
+            height: 40px;
+            background: var(--accent-gradient);
+            border-radius: 10px;
+            animation: legWalk 1.5s ease-in-out infinite alternate;
+
+            &:nth-child(2) {
+              animation-delay: 0.75s;
+            }
+          }
         }
       }
 
-      @include tablet {
-        font-size: 35px;
-      }
-
       @include mobile {
-        font-size: 25px;
+        width: 300px;
+        height: 400px;
       }
     }
 
-    p {
-      margin-bottom: 1rem;
-    }
-
-    .social-icons {
-      z-index: 1;
-      display: flex;
-      flex-direction: row;
-      gap: 1rem;
-      flex-wrap: wrap;
-
-      a {
-        width: 40px;
-        height: 40px;
-        border: 2px solid var(--activeTextColor);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        color: var(--activeTextColor);
-
-        &:hover {
-          background-color: var(--activeTextColor);
-          color: #fff;
-        }
-      }
-
-      @include tablet {
-        justify-content: center;
-      }
-
-      // @include mobile {
-      //   padding: 0 2.4rem;
-      //   justify-content: center;
-      // }
-    }
-
-    @include tablet {
+    .floating-element {
+      position: absolute;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: var(--glass-shadow);
+      animation: elementFloat 6s ease-in-out infinite;
       align-items: center;
-      margin-top: 10rem;
-      padding: 0 1rem;
-    }
+      display: flex;
+      flex-direction: column;
 
-    @include mobile {
-      padding: 0 1rem;
+      &__icon {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+
+      &__text {
+        // font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 500;
+      }
+
+      &.element-1 {
+        top: 10%;
+        right: 10%;
+        animation-delay: 0s;
+
+        @include mobile {
+          right: 5%;
+        }
+      }
+
+      &.element-2 {
+        bottom: 20%;
+        left: 5%;
+        animation-delay: -2s;
+
+        @include mobile {
+          left: -2%;
+        }
+      }
+
+      &.element-3 {
+        top: 60%;
+        right: 5%;
+        animation-delay: -4s;
+
+        @include mobile {
+          right: 2%;
+        }
+      }
+
+      &.element-4 {
+        top: 10%;
+        left: 5%;
+        animation-delay: -4s;
+
+        @include mobile {
+          left: -13%;
+        }
+      }
     }
   }
 }

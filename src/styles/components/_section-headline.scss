@@ -3,42 +3,34 @@
 .headline {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-bottom: 4rem;
 
   h2 {
-    margin: 0;
-    color: #333;
+    //font-size: 3rem;
     font-weight: 700;
-    line-height: 90px;
-    text-transform: uppercase;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 100%;
-    transition: 0.7s ease;
-    font-size: 5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: capitalize;
 
-    @include tablet {
-      font-size: 4rem;
-    }
+    // @include tablet {
+    //   font-size: 4rem;
+    // }
 
-    @include mobile {
-      font-size: 3rem;
-    }
+    // @include mobile {
+    //   font-size: 3rem;
+    // }
   }
 
   p {
-    color: #cb532e;
-    position: absolute;
-    font-size: 2rem;
-    text-transform: capitalize;
-
-    @include tablet {
-      font-size: 1.5rem;
-    }
-
-    @include mobile {
-      font-size: 1rem;
-    }
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    //font-size: 1.2rem;
   }
 }
