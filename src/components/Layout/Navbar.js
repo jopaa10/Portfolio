@@ -8,8 +8,8 @@ const Navbar = () => {
   const [activeItem, setActiveItem] = useState('home');
 
   const handleIsActive = (id) => {
-    if (NavbarData.find((item) => item.id === id)) {
-      setActiveItem(id);
+    if (NavbarData.includes(id)) {
+      setActiveItem(`${NavbarData[id].title}`);
     }
     toggleMenu();
   };
@@ -33,52 +33,37 @@ const Navbar = () => {
         setClosing(false);
       }
     };
+
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
-    <header>
-      {/* Mobile/Tablet menu toggle */}
+    <>
       <button
         className={`navbar-toggle ${menuOpen ? 'navbar-toggle--open' : ''}`}
         onClick={toggleMenu}
-        aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-        aria-expanded={menuOpen}
-        aria-controls="primary-navigation">
-        <span aria-hidden="true">☰</span>
+        aria-label={menuOpen ? 'Close menu' : 'Open menu'}>
+        <p>{'JZ'}</p>
       </button>
 
-      {/* Background overlay */}
-      <div
-        className={`navbar-overlay ${menuOpen ? 'navbar-overlay--active' : ''}`}
-        aria-hidden="true"
-      />
+      <div className={`navbar-overlay ${menuOpen ? 'navbar-overlay--active' : ''}`} />
 
-      {/* Navigation */}
-      <nav className={`navbar ${menuOpen || closing ? 'navbar--open' : ''}`} aria-label="Primary">
-        {/* Logo - gives accessible site name */}
-        <a href="/" className="logo">
-          <span aria-hidden="true">JZ</span>
-          <span className="sr-only">Home</span>
-        </a>
-
-        <ul
-          id="primary-navigation"
-          className={`navbar-items ${menuOpen || closing ? 'navbar-items--open' : ''}`}>
+      <nav className={`navbar ${menuOpen || closing ? 'navbar--open' : ''}`}>
+        <span className="logo">JZ</span>
+        <ul className={`navbar-items ${menuOpen || closing ? 'navbar-items--open' : ''}`}>
           {NavbarData.map((item) => (
             <li key={item.id} className="navbar-item">
-              <Link
-                to={item.title}
-                onClick={() => handleIsActive(item.id)}
-                aria-current={activeItem === item.id ? 'page' : undefined}>
+              <Link to={item.title} spy onClick={() => handleIsActive(item.id)}>
                 {item.title}
               </Link>
             </li>
           ))}
         </ul>
       </nav>
-    </header>
+    </>
   );
 };
 
