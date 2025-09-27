@@ -1,20 +1,32 @@
-const AboutMeInfoCard = (props) => {
-  const { icon, title, description, background, border, color } = props;
-
+const AboutMeInfoCard = ({ icon, title, description, background, border, color }) => {
   return (
-    <div className="info-section" style={{ backgroundColor: background, borderColor: border }}>
-      <div className="info-section__icon-title-container">
-        <span>{icon}</span>
-        <h3 className="title" style={{ color }}>
+    <section
+      className="info-section"
+      style={{ backgroundColor: background, borderColor: border }}
+      aria-labelledby={`${title.replace(/\s+/g, '-').toLowerCase()}-title`}>
+      <header className="info-section__icon-title-container">
+        <span
+          className="info-section__icon"
+          role="img"
+          aria-label={typeof icon === 'string' ? icon : title}>
+          {icon}
+        </span>
+        <h2
+          id={`${title.replace(/\s+/g, '-').toLowerCase()}-title`}
+          className="title"
+          style={{ color }}>
           {title}
-        </h3>
+        </h2>
+      </header>
+
+      <div className="info-section__content">
+        {description.map((line, index) => (
+          <p className="text" key={index}>
+            {line}
+          </p>
+        ))}
       </div>
-      {description.map((line, index) => (
-        <p className="text" key={index}>
-          {line}
-        </p>
-      ))}
-    </div>
+    </section>
   );
 };
 
