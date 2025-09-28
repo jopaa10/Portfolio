@@ -1,5 +1,9 @@
-import '../../styles/components/icon.scss';
+import styles from '../../styles/components/icon.module.scss';
 
 export const Icon = ({ icon }) => {
-  return <span className="icon">{icon}</span>;
+  return (
+    <span className={styles.icon} aria-hidden={true}>
+      {icon}
+    </span>
+  );
 };

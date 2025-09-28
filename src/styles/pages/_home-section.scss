@@ -2,22 +2,24 @@
 
 #home {
   width: 100%;
-  padding: 6rem 6rem 5rem 6rem;
+  height: 100%;
+  padding: 6rem 6rem 0 6rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   margin: 0 auto;
-  max-width: 1200px;
   flex-wrap: wrap;
-  min-height: 95vh;
+  //max-width: 1200px;
+  //min-height: 95vh;
 
   @include mobile {
-    padding-bottom: 8rem;
+    padding: 5rem 2rem;
   }
 
   .hero-section {
     display: flex;
     flex-flow: column wrap;
-    margin: 0 auto;
+    //margin: 0 auto;
     flex: 1;
     max-width: 600px;
     z-index: 2;
@@ -64,17 +66,24 @@
   }
 
   .hero-character {
-    flex: 1;
+    //flex: 1;
+    //position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     width: 100%;
+    max-width: 25rem;
+
+    @include tablet {
+      max-width: 35rem;
+    }
 
     .character-container {
       position: relative;
-      width: 400px;
-      height: 500px;
+      width: 100%;
+      max-width: 400px;
+      height: 40rem;
+      padding-top: 5rem;
 
       .character {
         position: absolute;
@@ -232,11 +241,11 @@
 
       &.element-4 {
         top: 10%;
-        left: 5%;
+        left: 0;
         animation-delay: -4s;
 
         @include mobile {
-          left: -13%;
+          left: -5%;
         }
       }
     }

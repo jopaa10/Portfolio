@@ -3,8 +3,9 @@ const AboutMeInfoCard = ({ icon, title, description, background, border, color }
     <section
       className="info-section"
       style={{ backgroundColor: background, borderColor: border }}
-      aria-labelledby={`${title.replace(/\s+/g, '-').toLowerCase()}-title`}>
-      <header className="info-section__icon-title-container">
+      aria-labelledby={`${title.replace(/\s+/g, '-').toLowerCase()}-title`}
+      data-aos="zoom-in">
+      <div className="info-section__icon-title-container">
         <span className="about-icon" role="img" aria-hidden={true}>
           {icon}
         </span>
@@ -14,7 +15,7 @@ const AboutMeInfoCard = ({ icon, title, description, background, border, color }
           style={{ color }}>
           {title}
         </h2>
-      </header>
+      </div>
 
       <div className="info-section__content">
         {description.map((line, index) => (

@@ -59,7 +59,11 @@ const Navbar = () => {
       <div className={`navbar-overlay ${menuOpen ? 'navbar-overlay--active' : ''}`} />
 
       <nav className={`navbar ${menuOpen || closing ? 'navbar--open' : ''}`}>
-        <span className="logo">JZ</span>
+        <button
+          onClick={() => document.getElementById('home').scrollIntoView({ behavior: 'smooth' })}
+          className="logo">
+          JZ
+        </button>
         <ul className={`navbar-items ${menuOpen || closing ? 'navbar-items--open' : ''}`}>
           {NavbarData.map((item) => (
             <li key={item.id} className="navbar-item">

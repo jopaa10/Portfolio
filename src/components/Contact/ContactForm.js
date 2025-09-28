@@ -3,28 +3,53 @@ import { Icon } from '../common/Icon';
 
 const ContactForm = () => {
   return (
-    <div className="contact__form">
+    <div className="contact__form" data-aos="fade-left" aria-labelledby="contact-form-title">
       <div className="glass-card">
         <div className="info">
           <Icon icon={'💬'} />
-          <h3>Ready to Start Something Amazing?</h3>
+          <h3 id="contact-form-title">Ready to Start Something Amazing?</h3>
           <p>{`Whether you have a project in mind, want to discuss collaboration opportunities, or just want to say hello, I'd love to hear from you!`}</p>
         </div>
-        <form action="">
+        <form action="" aria-describedby="contact-form-instructions">
           <div className="form-group">
             <div className="form-row">
               <label htmlFor="name"></label>
-              <input type="text" name="name" id="name" placeholder="Your name" required />
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Your name"
+                required
+                aria-required="true"
+              />
               <label htmlFor="email"></label>
-              <input type="email" name="email" id="email" placeholder="Your email" required />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Your email"
+                required
+                aria-required="true"
+              />
             </div>
           </div>
           <div className="form-group">
             <label htmlFor="subject"></label>
-            <input type="text" name="subject" id="subject" placeholder="Your subject" required />
+            <input
+              type="text"
+              name="subject"
+              id="subject"
+              placeholder="Your subject"
+              required
+              aria-required="true"
+            />
           </div>
           <div className="form-group">
-            <textarea placeholder="Tell me about your project or idea..." required />
+            <textarea
+              placeholder="Tell me about your project or idea..."
+              required
+              aria-required="true"
+            />
           </div>
 
           <Button text={'send message'} />
@@ -32,14 +57,18 @@ const ContactForm = () => {
         <div className="connect-directly">
           <p>Or connect with me directly</p>
           <div className="contact-alternatives">
-            <a href="mailto:josipa.znaor99@gmail.com" className="contact-link">
-              <span>📧</span>
+            <a
+              href="mailto:josipa.znaor99@gmail.com"
+              className="contact-link"
+              aria-label="Email Josipa Znaor">
+              <span aria-hidden="true">📧</span>
               <span>josipa.znaor99@gmail.com</span>
             </a>
             <a
               href="https://www.linkedin.com/in/josipa-znaor-105692222/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
               className="contact-link">
               <span>🔗</span>
               <span>LinkedIn</span>

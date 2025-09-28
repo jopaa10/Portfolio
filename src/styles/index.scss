@@ -1,6 +1,7 @@
 @import './mix-ins';
 @import './utils';
 @import './animations';
+@import './typography';
 
 html {
   scroll-behavior: smooth;
@@ -20,6 +21,8 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  color-scheme: dark;
+  overscroll-behavior: none;
 }
 
 body {
@@ -35,7 +38,8 @@ body {
   color: var(--glass-text-color);
   overflow-x: hidden;
   min-height: 100vh;
-  overscroll-behavior: none;
+
+  overflow-y: auto;
 }
 
 // --------------------
@@ -51,125 +55,26 @@ body {
   --glass-text-color: #fff;
 }
 
-// --------------------
-// Typography
-// --------------------
-
-// Headings
-h1 {
-  font-size: 3.2rem; // Desktop: 51.2px (16px * 3.2)
-  line-height: 1.2;
-  font-weight: 700;
-
-  @include tablet {
-    font-size: 2.8rem; // Tablet: 33.6px (12px * 2.8)
-  }
-
-  @include mobile {
-    font-size: 2.4rem; // Mobile: 19.2px (8px * 2.4)
-  }
-}
-
-h2 {
-  font-size: 2.8rem; // Desktop: 44.8px
-  line-height: 1.3;
-  font-weight: 700;
-
-  @include tablet {
-    font-size: 2.4rem; // Tablet: 28.8px
-  }
-
-  @include mobile {
-    font-size: 4rem; // Mobile: 16px
-  }
-}
-
-h3 {
-  font-size: 1.8rem;
-  line-height: 1.3;
-  font-weight: 600;
-
-  @include tablet {
-    font-size: 2.8rem;
-  }
-
-  @include mobile {
-    font-size: 2.4rem;
-  }
-}
-
-h4 {
-  font-size: 2rem; // Desktop: 32px
-  line-height: 1.4;
-  font-weight: 600;
-
-  @include tablet {
-    font-size: 1.3rem; // Tablet: 21.6px
-  }
-
-  @include mobile {
-    font-size: 1.6rem; // Mobile: 12.8px
-  }
-}
-
-// Span
-span {
-  font-size: 1rem; // Desktop: 22.4px
-
-  @include tablet {
-    font-size: 1.4rem; // Tablet: 14.4px
-  }
-
-  @include mobile {
-    font-size: 1.8rem; // Mobile: 8px
-  }
-}
-
-// Links / a
-a {
-  font-size: 1rem; // Desktop: 25.6px
-  text-decoration: none;
-  transition: color 0.3s ease;
-
-  @include tablet {
-    font-size: 1.2rem; // Tablet: 16.8px
-  }
-
-  @include mobile {
-    font-size: 1.5rem; // Mobile: 9.6px
-  }
-}
-
-// Buttons (text inside buttons inherits from a or span)
-button {
-  font-size: 1rem; // Desktop
-  font-weight: 600;
-
-  @include tablet {
-    font-size: 1.2rem;
-  }
-
-  @include mobile {
-    font-size: 1.5rem;
-  }
-}
-
-p {
-  font-size: 1rem; // Desktop: 24px
-  line-height: 1.5;
-  margin-bottom: 1.5rem;
-
-  @include tablet {
-    font-size: 1.3rem; // Tablet: 19.2px (1.6 * 12px)
-  }
-
-  @include mobile {
-    font-size: 1.7rem; // Mobile: 16px (2 * 8px)
-  }
-}
-
 button {
   cursor: pointer;
+}
+
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #4facfe;
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #4facfe;
+  outline-offset: 2px;
 }
 
 .bg-animation {
@@ -276,7 +181,7 @@ button {
 
 .navbar {
   position: fixed;
-  top: 2rem;
+  top: 1rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1001;
@@ -301,6 +206,7 @@ button {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    border: none;
 
     @include tablet {
       display: none;

@@ -80,7 +80,7 @@
       }
 
       &__bar {
-        background: rgba(255, 255, 255, 0.1);
+        background: var(--glass-bg);
         border-radius: 10px;
         height: 8px;
         overflow: hidden;
@@ -102,10 +102,10 @@
         margin-top: 3rem;
 
         &__item {
-          background: rgba(255, 255, 255, 0.1);
+          background: var(--glass-bg);
           padding: 0.5rem 1rem;
           border-radius: 20px;
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          border: 1px solid var(--glass-border);
           font-size: 1rem;
 
           @include mobile {

@@ -1,8 +1,14 @@
 const ProjectCard = ({ id, icon, title, description, topics, liveSite, link }) => {
   return (
-    <div className="project-card" key={id}>
+    <div
+      className="project-card"
+      key={id}
+      aria-labelledby={`project-title-${id}`}
+      data-aos="zoom-in">
       <div className="project-header">
-        <div className="project-icon">{icon}</div>
+        <div className="project-icon" aria-hidden="true">
+          {icon}
+        </div>
         <div className="project-info">
           <h3>{title}</h3>
           <div className="project-lang">TypeScript</div>
@@ -22,7 +28,8 @@ const ProjectCard = ({ id, icon, title, description, topics, liveSite, link }) =
             href={liveSite}
             target="_blank"
             rel="noopener noreferrer"
-            className="project-link link-primary">
+            className="project-link link-primary"
+            aria-label={`Visit live demo of ${title}`}>
             Live Demo
           </a>
         )}
@@ -30,7 +37,8 @@ const ProjectCard = ({ id, icon, title, description, topics, liveSite, link }) =
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="project-link link-secondary">
+          className="project-link link-secondary"
+          aria-label={`View source code of ${title} on GitHub`}>
           View Code
         </a>
       </div>

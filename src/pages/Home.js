@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { useGlobalContext } from '../context/context';
 import '../styles/pages/_home-section.scss';
-import Button from '../components/common/Button';
 import Character from '../components/Home/Character';
+import Hero from '../components/Home/Hero';
 
 const Home = () => {
   const homeRef = useRef();
@@ -19,30 +19,7 @@ const Home = () => {
 
   return (
     <section className="home" id="home" ref={homeRef}>
-      <div className="hero-section">
-        <h1 className="hero-section__title">Creative Developer</h1>
-        <h2 className="hero-section__subtitle">Building the future, one line of code at a time</h2>
-        <p className="hero-section__description">
-          {`I'm Josipa Znaor, a passionate full-stack developer who transforms innovative ideas into
-            exceptional digital experiences using cutting-edge technologies and creative
-            problem-solving.`}
-        </p>
-        <div className="hero-section__buttons">
-          <Button
-            onClick={() => {
-              document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-            }}
-            text={'View my work'}
-          />
-          <Button
-            onClick={() => {
-              document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-            }}
-            text={`Let's collaborate`}
-            colorVariant="secondary"
-          />
-        </div>
-      </div>
+      <Hero />
       <Character />
     </section>
   );

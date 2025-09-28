@@ -1,7 +1,18 @@
+import { useEffect } from 'react';
 import SharedLayout from './components/Layout/SharedLayout';
 import './styles/index.scss';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      once: true,
+      duration: 1000,
+      easing: 'ease-in-out'
+    });
+  }, []);
+
   return (
     <div className="App">
       <div className="bg-animation">
