@@ -135,6 +135,7 @@
         align-items: center;
         gap: 0.25rem;
         margin-bottom: 0.5rem;
+        width: 100%;
 
         .title {
           font-size: 1.5rem;
@@ -142,13 +143,25 @@
           margin: 0;
           -webkit-text-fill-color: unset;
 
-          @include tablet {
-            font-size: 2rem;
+          @include desktop {
+            font-size: 1.2rem;
+          }
+        }
+
+        .about-icon {
+          font-size: 1.5rem;
+
+          @include desktop {
+            font-size: 1.2rem;
           }
         }
       }
       .text {
         margin-bottom: 0;
+      }
+
+      &__content {
+        width: 100%;
       }
     }
 

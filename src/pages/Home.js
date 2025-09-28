@@ -21,7 +21,7 @@ const Home = () => {
     <section className="home" id="home" ref={homeRef}>
       <div className="hero-section">
         <h1 className="hero-section__title">Creative Developer</h1>
-        <p className="hero-section__subtitle">Building the future, one line of code at a time</p>
+        <h2 className="hero-section__subtitle">Building the future, one line of code at a time</h2>
         <p className="hero-section__description">
           {`I'm Josipa Znaor, a passionate full-stack developer who transforms innovative ideas into
             exceptional digital experiences using cutting-edge technologies and creative

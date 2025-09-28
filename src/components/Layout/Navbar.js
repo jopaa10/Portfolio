@@ -26,6 +26,13 @@ const Navbar = () => {
     }
   };
 
+  function handleKeyDown(e, id) {
+    if (e.key === ' ' || e.key === 'Enter') {
+      e.preventDefault();
+      handleIsActive(id);
+    }
+  }
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768) {
@@ -56,7 +63,13 @@ const Navbar = () => {
         <ul className={`navbar-items ${menuOpen || closing ? 'navbar-items--open' : ''}`}>
           {NavbarData.map((item) => (
             <li key={item.id} className="navbar-item">
-              <Link to={item.title} spy onClick={() => handleIsActive(item.id)}>
+              <Link
+                to={item.title}
+                spy
+                tabIndex={0}
+                role="link"
+                onKeyDown={(e) => handleKeyDown(e, item.id)}
+                onClick={() => handleIsActive(item.id)}>
                 {item.title}
               </Link>
             </li>

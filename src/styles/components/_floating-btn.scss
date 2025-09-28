@@ -57,6 +57,18 @@
     }
   }
 
+  &__icon {
+    font-size: 1.2rem;
+
+    @include tablet {
+      font-size: 1.6rem;
+    }
+
+    @include mobile {
+      font-size: 2rem;
+    }
+  }
+
   &:hover {
     transform: translateY(-5px) scale(1.1);
     box-shadow: 0 20px 40px rgba(79, 172, 254, 0.6);

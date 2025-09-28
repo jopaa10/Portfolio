@@ -2,7 +2,7 @@ import { CharacterElements } from '../../utils/homeData/CharacterData';
 
 const Character = () => {
   return (
-    <div className="hero-character">
+    <div className="hero-character" aria-hidden="true">
       <div className="character-container">
         <div className="character">
           <div className="character__head">

@@ -5,10 +5,7 @@ const AboutMeInfoCard = ({ icon, title, description, background, border, color }
       style={{ backgroundColor: background, borderColor: border }}
       aria-labelledby={`${title.replace(/\s+/g, '-').toLowerCase()}-title`}>
       <header className="info-section__icon-title-container">
-        <span
-          className="info-section__icon"
-          role="img"
-          aria-label={typeof icon === 'string' ? icon : title}>
+        <span className="about-icon" role="img" aria-hidden={true}>
           {icon}
         </span>
         <h2
