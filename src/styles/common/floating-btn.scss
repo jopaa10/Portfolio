@@ -4,8 +4,8 @@
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  width: 3rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
   background: var(--accent-gradient);
   border-radius: 50%;
   display: flex;
@@ -37,7 +37,9 @@
     right: 4rem;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--glass-border);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
     color: var(--glass-text-color);
     padding: 0.5rem 1rem;
     border-radius: 20px;
@@ -50,6 +52,7 @@
 
     @include tablet {
       right: 5rem;
+      font-size: 1.4rem;
     }
 
     @include mobile {
@@ -58,7 +61,7 @@
   }
 
   &__icon {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 
     @include tablet {
       font-size: 1.6rem;
@@ -71,11 +74,19 @@
 
   &:hover {
     transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 20px 40px rgba(79, 172, 254, 0.6);
+    box-shadow: 0 0 20px rgba(79, 172, 254, 0.6);
     animation: none;
 
-    .floating-btn__tooltip {
-      opacity: 1;
+    @include desktop {
+      .floating-btn__tooltip {
+        opacity: 1;
+        pointer-events: auto;
+      }
     }
+  }
+
+  &.tooltip-open .floating-btn__tooltip {
+    opacity: 1;
+    pointer-events: auto;
   }
 }

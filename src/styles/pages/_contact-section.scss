@@ -5,6 +5,10 @@
   max-width: 1200px;
   margin: 0 auto;
 
+  @include tablet {
+    padding-inline: 6rem;
+  }
+
   &__form {
     max-width: 600px;
     margin: 0 auto;

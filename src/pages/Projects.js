@@ -1,4 +1,4 @@
-import '../styles/components/_projects.scss';
+import '../styles/pages/_projects.scss';
 import { useRef } from 'react';
 import SectionHeadLine from '../components/common/SectionHeadline';
 import SectionWrapper from '../components/common/SectionWrapper';

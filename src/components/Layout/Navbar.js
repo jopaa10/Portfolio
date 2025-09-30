@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
 import NavbarData from '../../utils/navbarData/NavbarData';
+import '../../styles/common/navbar.scss';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -35,7 +36,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 768) {
+      if (window.innerWidth >= 768) {
         setMenuOpen(false);
         setClosing(false);
       }
@@ -52,7 +53,8 @@ const Navbar = () => {
       <button
         className={`navbar-toggle ${menuOpen ? 'navbar-toggle--open' : ''}`}
         onClick={toggleMenu}
-        aria-label={menuOpen ? 'Close menu' : 'Open menu'}>
+        aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+      >
         <p>{'JZ'}</p>
       </button>
 
@@ -61,7 +63,8 @@ const Navbar = () => {
       <nav className={`navbar ${menuOpen || closing ? 'navbar--open' : ''}`}>
         <button
           onClick={() => document.getElementById('home').scrollIntoView({ behavior: 'smooth' })}
-          className="logo">
+          className="logo"
+        >
           JZ
         </button>
         <ul className={`navbar-items ${menuOpen || closing ? 'navbar-items--open' : ''}`}>
@@ -70,10 +73,10 @@ const Navbar = () => {
               <Link
                 to={item.title}
                 spy
-                tabIndex={0}
                 role="link"
                 onKeyDown={(e) => handleKeyDown(e, item.id)}
-                onClick={() => handleIsActive(item.id)}>
+                onClick={() => handleIsActive(item.id)}
+              >
                 {item.title}
               </Link>
             </li>

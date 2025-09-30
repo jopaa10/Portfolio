@@ -1,10 +1,12 @@
-import './button.scss';
+import '../../styles/common/button.scss';
 
-const Button = ({ text, colorVariant = 'primary', onClick }) => {
+const Button = ({ text, colorVariant = 'primary', onClick, type = 'button' }) => {
   return (
     <button
       onClick={onClick}
-      className={`btn ${colorVariant === 'secondary' ? `btn--secondary` : `btn--primary`}`}>
+      type={type}
+      className={`btn ${colorVariant === 'secondary' ? `btn--secondary` : `btn--primary`}`}
+    >
       {text}
     </button>
   );
