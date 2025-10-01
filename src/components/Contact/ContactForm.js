@@ -52,7 +52,7 @@ const ContactForm = () => {
     setIsFlipped(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/contact', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
