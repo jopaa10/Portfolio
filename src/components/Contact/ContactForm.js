@@ -91,6 +91,13 @@ const ContactForm = () => {
     flipTimeoutRef.current = setTimeout(() => setIsFlipped(false), 4000);
   };
 
+  const isFormComplete =
+    formData.name.trim() !== '' &&
+    formData.email.trim() !== '' &&
+    isValidEmail(formData.email) &&
+    formData.subject.trim() !== '' &&
+    formData.message.trim() !== '';
+
   useEffect(() => {
     return () => {
       if (flipTimeoutRef.current) {
@@ -120,6 +127,7 @@ const ContactForm = () => {
                   value={formData.name}
                   onChange={handleChange}
                   aria-required="true"
+                  required
                 />
                 <label htmlFor="email"></label>
                 <input
@@ -130,6 +138,7 @@ const ContactForm = () => {
                   value={formData.email}
                   onChange={handleChange}
                   aria-required="true"
+                  required
                 />
               </div>
             </div>
@@ -143,6 +152,7 @@ const ContactForm = () => {
                 value={formData.subject}
                 onChange={handleChange}
                 aria-required="true"
+                required
               />
             </div>
             <div className="form-group">
@@ -153,10 +163,11 @@ const ContactForm = () => {
                 value={formData.message}
                 onChange={handleChange}
                 aria-required="true"
+                required
               />
             </div>
 
-            <Button text={'send message'} type="submit" />
+            <Button text={'send message'} type="submit" disabled={!isFormComplete} />
           </form>
           <ConnectDirectly />
         </div>
@@ -170,7 +181,12 @@ const ContactForm = () => {
             <h3>{status.message}</h3>
             {status.type === 'loading' && <div className="spinner"></div>}
           </div>
-          <Button text={'Back to email form'} type="button" onClick={() => setIsFlipped(false)} />
+          <Button
+            text={'Back to email form'}
+            type="button"
+            disabled={status.type === 'info'}
+            onClick={() => setIsFlipped(false)}
+          />
           <ConnectDirectly />
         </div>
       </div>

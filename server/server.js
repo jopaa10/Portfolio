@@ -1,6 +1,6 @@
 const express = require('express');
-const nodemailer = require('nodemailer');
 const cors = require('cors');
+const sgMail = require('@sendgrid/mail');
 
 require('dotenv').config();
 
@@ -9,18 +9,11 @@ const contactToUser = require('./template/contactToUser');
 
 const app = express();
 
-app.use(cors());
-
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  }
-});
+// Set SendGrid API key
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 app.post('/api/contact', async (req, res) => {
   const { name, email, subject, message } = req.body;
@@ -30,24 +23,27 @@ app.post('/api/contact', async (req, res) => {
   }
 
   try {
-    await transporter.sendMail({
-      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
-      replyTo: email,
+    const msgToOwner = {
       to: process.env.EMAIL_USER,
+      from: process.env.EMAIL_USER,
+      replyTo: email,
       subject: `New Portfolio Contact: ${subject}`,
       html: contactToOwner({ name, email, subject, message })
-    });
+    };
 
-    await transporter.sendMail({
-      from: `"Josipa Portfolio" <${process.env.EMAIL_USER}>`,
+    const msgToUser = {
       to: email,
+      from: process.env.EMAIL_USER,
       subject: 'Thanks for reaching out!',
       html: contactToUser({ name, message })
-    });
+    };
+
+    await sgMail.send(msgToOwner);
+    await sgMail.send(msgToUser);
 
     res.status(200).json({ success: true, message: 'Email sent successfully' });
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('SendGrid error:', error);
     res.status(500).json({ success: false, error: 'Failed to send email' });
   }
 });
