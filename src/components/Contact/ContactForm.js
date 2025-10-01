@@ -1,8 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Button from '../common/Button';
 import { Icon } from '../common/Icon';
+import ConnectDirectly from './ConnectDirectly';
 
 const ContactForm = () => {
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [status, setStatus] = useState({
+    message: '',
+    type: '',
+    icon: '',
+    title: ''
+  });
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,7 +18,12 @@ const ContactForm = () => {
     message: ''
   });
 
-  const [status, setStatus] = useState(''); // to show success/error messages
+  const flipTimeoutRef = useRef(null);
+
+  const isValidEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(String(email).toLowerCase());
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,7 +31,25 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus('Sending...');
+
+    if (flipTimeoutRef.current) {
+      clearTimeout(flipTimeoutRef.current);
+    }
+
+    if (!isValidEmail(formData.email)) {
+      setStatus({
+        message: 'Please enter a valid email address.',
+        type: 'error',
+        icon: '❌',
+        title: 'Invalid Email'
+      });
+      setIsFlipped(true);
+      flipTimeoutRef.current = setTimeout(() => setIsFlipped(false), 4000);
+      return;
+    }
+
+    setStatus({ message: 'Sending your message...', type: 'info', icon: '⏳', title: 'Sending' });
+    setIsFlipped(true);
 
     try {
       const response = await fetch('http://localhost:3001/api/contact', {
@@ -32,102 +63,115 @@ const ContactForm = () => {
       const data = await response.json();
 
       if (data.success) {
-        setStatus('Message sent successfully!');
-        setFormData({ name: '', email: '', subject: '', message: '' }); // clear form
+        setStatus({
+          message: 'Message sent successfully!',
+          type: 'success',
+          icon: '✅',
+          title: 'Success'
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        setStatus('Failed to send message. Try again.');
+        setStatus({
+          message: 'Failed to send message. Please try again.',
+          type: 'error',
+          icon: '❌',
+          title: 'Error'
+        });
       }
     } catch (error) {
       console.error(error);
-      setStatus('An error occurred. Please try again later.');
+      setStatus({
+        message: 'An error occured. Please try again later.',
+        type: 'error',
+        icon: '⚠️',
+        title: 'Error'
+      });
     }
+
+    flipTimeoutRef.current = setTimeout(() => setIsFlipped(false), 4000);
   };
+
+  useEffect(() => {
+    return () => {
+      if (flipTimeoutRef.current) {
+        clearTimeout(flipTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className="contact__form" data-aos="fade-left" aria-labelledby="contact-form-title">
-      <div className="glass-card">
-        <div className="info">
-          <Icon icon={'💬'} />
-          <h3 id="contact-form-title">Ready to Start Something Amazing?</h3>
-          <p>{`Whether you have a project in mind, want to discuss collaboration opportunities, or just want to say hello, I'd love to hear from you!`}</p>
-        </div>
-        <form action="" onSubmit={handleSubmit} aria-describedby="contact-form-instructions">
-          <div className="form-group">
-            <div className="form-row">
-              <label htmlFor="name"></label>
+      <div className={`flip-card-inner ${isFlipped ? 'is-flipped' : ''}`}>
+        <div className="flip-card-front glass-card">
+          <div className="info">
+            <Icon icon={'💬'} />
+            <h3 id="contact-form-title">Ready to Start Something Amazing?</h3>
+            <p>{`Whether you have a project in mind, want to discuss collaboration opportunities, or just want to say hello, I'd love to hear from you!`}</p>
+          </div>
+          <form action="" onSubmit={handleSubmit} aria-describedby="contact-form-instructions">
+            <div className="form-group">
+              <div className="form-row">
+                <label htmlFor="name"></label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Your name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  aria-required="true"
+                />
+                <label htmlFor="email"></label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Your email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  aria-required="true"
+                />
+              </div>
+            </div>
+            <div className="form-group">
+              <label htmlFor="subject"></label>
               <input
                 type="text"
-                name="name"
-                id="name"
-                placeholder="Your name"
-                value={formData.name}
+                name="subject"
+                id="subject"
+                placeholder="Your subject"
+                value={formData.subject}
                 onChange={handleChange}
-                required
-                aria-required="true"
-              />
-              <label htmlFor="email"></label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Your email"
-                value={formData.email}
-                onChange={handleChange}
-                required
                 aria-required="true"
               />
             </div>
-          </div>
-          <div className="form-group">
-            <label htmlFor="subject"></label>
-            <input
-              type="text"
-              name="subject"
-              id="subject"
-              placeholder="Your subject"
-              value={formData.subject}
-              onChange={handleChange}
-              required
-              aria-required="true"
-            />
-          </div>
-          <div className="form-group">
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Tell me about your project or idea..."
-              value={formData.message}
-              onChange={handleChange}
-              required
-              aria-required="true"
-            />
-          </div>
+            <div className="form-group">
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Tell me about your project or idea..."
+                value={formData.message}
+                onChange={handleChange}
+                aria-required="true"
+              />
+            </div>
 
-          <Button text={'send message'} type="submit" />
-          {status && <p className="form-status">{status}</p>}
-        </form>
-        <div className="connect-directly">
-          <p>Or connect with me directly</p>
-          <div className="contact-alternatives">
-            <a
-              href="mailto:josipa.znaor99@gmail.com"
-              className="contact-link"
-              aria-label="Email Josipa Znaor"
-            >
-              <span aria-hidden="true">📧</span>
-              <span>josipa.znaor99@gmail.com</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/josipa-znaor-105692222/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn Profile"
-              className="contact-link"
-            >
-              <span>🔗</span>
-              <span>LinkedIn</span>
-            </a>
+            <Button text={'send message'} type="submit" />
+          </form>
+          <ConnectDirectly />
+        </div>
+        <div className={`flip-card-back glass-card status-${status.type}`}>
+          <div className="info">
+            <Icon icon={status.icon} />
+            <h3 id="contact-form-title">{status.title}</h3>
+            <p>{`Thanks for reaching out — I’ll get back to you as soon as possible.`}</p>
           </div>
+          <div className="status-content">
+            <h3>{status.message}</h3>
+            {status.type === 'loading' && <div className="spinner"></div>}
+          </div>
+          <Button text={'Back to email form'} type="button" onClick={() => setIsFlipped(false)} />
+          <ConnectDirectly />
         </div>
       </div>
     </div>

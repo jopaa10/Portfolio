@@ -6,12 +6,7 @@
   height: auto;
   padding: 5rem 2rem;
 
-  @include tablet {
-    padding: 5rem 6rem;
-  }
-
   .skills-box {
-    //padding: 2rem 0;
     display: grid;
     gap: 2rem;
     grid-template-columns: 1fr 1fr 1fr;

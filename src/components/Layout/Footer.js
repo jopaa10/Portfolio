@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import '../../styles/_footer.scss';
+import '../../styles/common/footer.scss';
 import SectionWrapper from '../common/SectionWrapper';
 
 const Footer = () => {

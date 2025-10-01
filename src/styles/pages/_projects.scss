@@ -2,10 +2,6 @@
 
 #projects {
   padding: 0 2rem;
-
-  @include tablet {
-    padding: 0 6rem;
-  }
 }
 
 .projects-grid {
@@ -137,7 +133,6 @@
         text-decoration: none;
         font-weight: 500;
         transition: all 0.3s ease;
-        //font-size: 0.9rem;
 
         &.link-primary {
           background: var(--primary-gradient);

@@ -115,13 +115,12 @@
 
       /* Floating Tech Tags */
       .experience-technologies {
-        // display: flex;
-        // flex-wrap: wrap;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
         gap: 1rem;
         width: 100%;
         list-style: none;
+        align-items: center;
 
         @include tablet {
           grid-template-columns: 1fr 1fr;
@@ -134,7 +133,7 @@
             rgba(168, 85, 247, 0.2) 100%
           );
           color: #64b5f6;
-          padding: 1rem;
+          padding: 0.5rem;
           border-radius: 20px;
           font-weight: 600;
           border: 1px solid rgba(100, 181, 246, 0.4);
@@ -144,11 +143,11 @@
           overflow-wrap: break-word;
 
           @include desktop {
-            font-size: 1rem;
+            font-size: 0.8rem;
           }
 
           @include mobile {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
           }
         }
       }

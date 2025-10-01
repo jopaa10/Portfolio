@@ -1,119 +1,181 @@
 @import '../mix-ins';
 
+#contact {
+  width: 100%;
+  position: relative;
+  height: auto;
+  padding: 5rem 2rem;
+}
+
 .contact {
   padding: 0 5% 5rem 5%;
   max-width: 1200px;
   margin: 0 auto;
 
-  @include tablet {
-    padding-inline: 6rem;
-  }
-
   &__form {
     max-width: 600px;
     margin: 0 auto;
 
-    .glass-card {
-      .info {
-        text-align: center;
-        margin-bottom: 3rem;
+    .flip-card-inner {
+      display: grid;
+      width: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.8s ease;
 
-        h3 {
-          margin-bottom: 1rem;
-          background: var(--primary-gradient);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+      &.is-flipped {
+        transform: rotateY(180deg);
+      }
 
-          @include mobile {
-            font-size: 3rem;
+      .flip-card-front,
+      .flip-card-back {
+        backface-visibility: hidden;
+        grid-area: 1/1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 15px;
+      }
+
+      .glass-card {
+        .info {
+          text-align: center;
+          margin-bottom: 3rem;
+
+          h3 {
+            margin-bottom: 1rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+
+            @include mobile {
+              font-size: 3rem;
+            }
+          }
+
+          p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
           }
         }
 
-        p {
-          color: rgba(255, 255, 255, 0.7);
-          line-height: 1.6;
+        form {
+          .form-group {
+            margin-bottom: 2rem;
+
+            .form-row {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 1rem;
+            }
+
+            label {
+              display: none;
+            }
+
+            input,
+            textarea {
+              background: var(--glass-bg);
+              backdrop-filter: blur(20px);
+              -webkit-backdrop-filter: blur(20px);
+              border: 1px solid var(--glass-border);
+              border-radius: 15px;
+              padding: 1rem;
+              color: var(--glass-text-color);
+              font-size: 1rem;
+              width: 100%;
+
+              &::placeholder {
+                color: rgba(255, 255, 255, 0.5);
+              }
+
+              @include tablet {
+                font-size: 1.4rem;
+              }
+
+              @include mobile {
+                font-size: 1.7rem;
+              }
+            }
+
+            textarea {
+              min-height: 8rem;
+            }
+          }
         }
-      }
 
-      form {
-        .form-group {
-          margin-bottom: 2rem;
+        .connect-directly {
+          display: flex;
+          text-align: center;
+          flex-direction: column;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          width: 100%;
+          margin-top: 2rem;
+          padding-top: 2rem;
 
-          .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+          p {
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.6);
+          }
+
+          .contact-alternatives {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 1rem;
           }
 
-          label {
-            display: none;
-          }
+          .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
 
-          input,
-          textarea {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            padding: 1rem;
-            color: var(--glass-text-color);
-            font-size: 1rem;
-            width: 100%;
-
-            &::placeholder {
-              color: rgba(255, 255, 255, 0.5);
+            &:hover {
+              color: var(--glass-text-color);
             }
-
-            @include tablet {
-              font-size: 1.4rem;
-            }
-
-            @include mobile {
-              font-size: 1.7rem;
-            }
-          }
-
-          textarea {
-            min-height: 8rem;
           }
         }
       }
 
-      .connect-directly {
+      .flip-card-back {
+        transform: rotateY(180deg);
         display: flex;
-        text-align: center;
         flex-direction: column;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        width: 100%;
-        margin-top: 2rem;
-        padding-top: 2rem;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        height: fit-content;
 
-        p {
-          margin-bottom: 1.5rem;
-          color: rgba(255, 255, 255, 0.6);
-          // font-size: 1rem;
+        .info {
+          margin-bottom: 0;
         }
 
-        .contact-alternatives {
-          display: flex;
-          justify-content: center;
-          flex-wrap: wrap;
-          gap: 1rem;
+        .status-content {
+          margin-bottom: 2rem;
         }
 
-        .contact-link {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          color: rgba(255, 255, 255, 0.8);
-          text-decoration: none;
-          transition: color 0.3s ease;
+        &.status-success {
+          color: #2ecc71;
+        } // green
+        &.status-error {
+          color: #e74c3c;
+        } // red
+        &.status-loading {
+          color: #3498db;
+        } // blue
 
-          &:hover {
-            color: var(--glass-text-color);
-          }
+        .spinner {
+          margin-top: 1rem;
+          border: 4px solid rgba(255, 255, 255, 0.3);
+          border-top: 4px solid #fff;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          animation: spin 1s linear infinite;
         }
       }
     }

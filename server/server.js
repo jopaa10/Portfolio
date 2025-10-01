@@ -4,11 +4,14 @@ const cors = require('cors');
 
 require('dotenv').config();
 
+const contactToOwner = require('./template/contactToOwner');
+const contactToUser = require('./template/contactToUser');
+
 const app = express();
 
 app.use(cors());
 
-app.use(cors({ origin: '*' })); // allow all origins
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
@@ -22,46 +25,30 @@ const transporter = nodemailer.createTransport({
 app.post('/api/contact', async (req, res) => {
   const { name, email, subject, message } = req.body;
 
-  console.log(req.body);
-
   if (!name || !email || !subject || !message) {
     return res.status(400).json({ success: false, error: 'All fields are required' });
   }
 
   try {
     await transporter.sendMail({
-      from: email,
+      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+      replyTo: email,
       to: process.env.EMAIL_USER,
-      subject: `Portfolio Contact: ${subject}`,
-      text: `From ${name} (${email})\n\n${message}`
+      subject: `New Portfolio Contact: ${subject}`,
+      html: contactToOwner({ name, email, subject, message })
     });
 
     await transporter.sendMail({
-      from: process.env.EMAIL_USER,
+      from: `"Josipa Portfolio" <${process.env.EMAIL_USER}>`,
       to: email,
       subject: 'Thanks for reaching out!',
-      text: `Hi ${name},\n\nThanks for your message! I’ll get back to you soon.\n\n- Josipa`
+      html: contactToUser({ name, message })
     });
 
     res.status(200).json({ success: true, message: 'Email sent successfully' });
   } catch (error) {
     console.error('Error sending email:', error);
     res.status(500).json({ success: false, error: 'Failed to send email' });
-  }
-});
-
-app.get('/test-email', async (req, res) => {
-  try {
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
-      subject: 'Test Email',
-      text: 'If you see this, Nodemailer + Gmail is working ✅'
-    });
-    res.send('Test email sent!');
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error sending email');
   }
 });
 
