@@ -6,11 +6,11 @@ const SkillsData = [
       'Creating beautiful, responsive, and accessible user interfaces with modern frameworks and best practices.',
     skills: [
       { name: 'React', percent: '80%' },
-      { name: 'Svelte', percent: '70%' },
+      { name: 'Svelte', percent: '85%' },
       { name: 'Next.js', percent: '75%' },
-      { name: 'HTML', percent: '85%' },
-      { name: 'CSS / SCSS', percent: '75%' },
-      { name: 'TypeScript', percent: '65%' }
+      { name: 'HTML', percent: '95%' },
+      { name: 'CSS / SCSS', percent: '85%' },
+      { name: 'TypeScript', percent: '70%' }
     ],
     extra: ['Responsive Design', 'CSS3', 'Flexbox/Grid']
   },
@@ -41,9 +41,9 @@ const SkillsData = [
     description: 'Ensuring web accessibility and inclusivity by following WCAG guidelines.',
     skills: [
       { name: 'Semantic HTML', percent: '80%' },
-      { name: 'ARIA Roles', percent: '80%' },
-      { name: 'Keyboard Navigation', percent: '75%' },
-      { name: 'Screen Reader Testing', percent: '80%' }
+      { name: 'ARIA Roles', percent: '90%' },
+      { name: 'Keyboard Navigation', percent: '80%' },
+      { name: 'Screen Reader Testing', percent: '90%' }
     ],
     extra: ['Contrast Checking', 'Accessible Forms']
   },
@@ -54,7 +54,7 @@ const SkillsData = [
     skills: [
       { name: 'English Communication', percent: '90%' },
       { name: 'Problem Solving', percent: '85%' },
-      { name: 'Team Collaboration', percent: '80%' },
+      { name: 'Team Collaboration', percent: '95%' },
       { name: 'Continuous Learning', percent: '95%' }
     ],
     extra: ['Empathy', 'Adaptability', 'Initiative']
@@ -65,7 +65,7 @@ const SkillsData = [
     description: 'Managing tasks, timelines, and teams using modern tools and methodologies.',
     skills: [
       { name: 'Linear', percent: '90%' },
-      { name: 'Jira', percent: '60%' }
+      { name: 'Jira', percent: '70%' }
     ],
     extra: ['Agile', 'Scrum', 'Issue Tracking']
   },
@@ -93,9 +93,9 @@ const SkillsData = [
     description: 'Deploying and managing web applications efficiently across various platforms.',
     skills: [
       { name: 'Git', percent: '80%' },
-      { name: 'Render', percent: '25%' },
-      { name: 'Vercel', percent: '70%' },
-      { name: 'Netlify', percent: '75%' }
+      { name: 'Render', percent: '70%' },
+      { name: 'Vercel', percent: '85%' },
+      { name: 'Netlify', percent: '85%' }
     ],
     extra: ['Version Control', 'CI/CD Basics']
   },
@@ -106,7 +106,7 @@ const SkillsData = [
       'Capturing and editing stunning photos and videos across various environments and formats.',
     skills: [
       { name: 'Photography', percent: '80%' },
-      { name: 'Drone Usage', percent: '60%' },
+      { name: 'Drone Usage', percent: '80%' },
       { name: 'Video Creation', percent: '75%' }
     ],
     extra: ['Photo Editing', 'Drone Filming', 'Color Grading']
@@ -117,7 +117,7 @@ const SkillsData = [
     description:
       'Designing modern, user-friendly interfaces and visual content using professional tools.',
     skills: [
-      { name: 'Figma', percent: '75%' },
+      { name: 'Figma', percent: '85%' },
       { name: 'Adobe Photoshop', percent: '80%' },
       { name: 'Lightroom', percent: '85%' }
     ],
