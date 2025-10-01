@@ -6,8 +6,7 @@ const ConnectDirectly = () => {
         <a
           href="mailto:josipa.znaor99@gmail.com"
           className="contact-link"
-          aria-label="Email Josipa Znaor"
-        >
+          aria-label="Email Josipa Znaor">
           <span aria-hidden="true">📧</span>
           <span>josipa.znaor99@gmail.com</span>
         </a>
@@ -16,8 +15,7 @@ const ConnectDirectly = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn Profile"
-          className="contact-link"
-        >
+          className="contact-link">
           <span>🔗</span>
           <span>LinkedIn</span>
         </a>

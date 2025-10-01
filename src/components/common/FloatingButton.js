@@ -32,8 +32,7 @@ const FloatingButton = () => {
     <button
       className={`floating-btn ${isMobile && isOpen ? 'tooltip-open' : ''}`}
       onClick={handleClick}
-      aria-label="Visit the old portfolio design"
-    >
+      aria-label="Visit the old portfolio design">
       <span className="floating-btn__icon" role="img" aria-hidden="true">
         👁️
       </span>
@@ -42,8 +41,7 @@ const FloatingButton = () => {
           href="https://portfolio-bg8r-dj16qopbl-jopaa10s-projects.vercel.app"
           target="_blank"
           rel="noopener noreferrer"
-          className="floating-btn__tooltip"
-        >
+          className="floating-btn__tooltip">
           Click for old design
         </a>
       ) : (

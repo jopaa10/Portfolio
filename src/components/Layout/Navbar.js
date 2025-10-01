@@ -53,8 +53,7 @@ const Navbar = () => {
       <button
         className={`navbar-toggle ${menuOpen ? 'navbar-toggle--open' : ''}`}
         onClick={toggleMenu}
-        aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-      >
+        aria-label={menuOpen ? 'Close menu' : 'Open menu'}>
         <p>{'JZ'}</p>
       </button>
 
@@ -63,8 +62,7 @@ const Navbar = () => {
       <nav className={`navbar ${menuOpen || closing ? 'navbar--open' : ''}`}>
         <button
           onClick={() => document.getElementById('home').scrollIntoView({ behavior: 'smooth' })}
-          className="logo"
-        >
+          className="logo">
           JZ
         </button>
         <ul className={`navbar-items ${menuOpen || closing ? 'navbar-items--open' : ''}`}>
@@ -75,8 +73,7 @@ const Navbar = () => {
                 spy
                 role="link"
                 onKeyDown={(e) => handleKeyDown(e, item.id)}
-                onClick={() => handleIsActive(item.id)}
-              >
+                onClick={() => handleIsActive(item.id)}>
                 {item.title}
               </Link>
             </li>

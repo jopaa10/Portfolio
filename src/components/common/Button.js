@@ -5,8 +5,7 @@ const Button = ({ text, colorVariant = 'primary', onClick, type = 'button' }) =>
     <button
       onClick={onClick}
       type={type}
-      className={`btn ${colorVariant === 'secondary' ? `btn--secondary` : `btn--primary`}`}
-    >
+      className={`btn ${colorVariant === 'secondary' ? `btn--secondary` : `btn--primary`}`}>
       {text}
     </button>
   );

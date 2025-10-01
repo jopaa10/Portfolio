@@ -34,7 +34,7 @@
     "prepare": "husky install",
     "lint": "eslint .",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "lint:fix": "eslint --fix . --ext .js,.jsx,.ts,.tsx"
+    "lint:fix": "eslint --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -70,16 +70,6 @@
     "sass": "^1.89.0"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "server/**/*.{js,ts}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{css,scss,md,json}": [
-      "prettier --write"
-    ]
+    "*.js": "eslint --cache --fix"
   }
 }
