@@ -26,3 +26,6 @@ yarn-error.log*
 
 # ESLint cache
 .eslintcache
+
+.env
+/server/.env
