@@ -1,8 +1,7 @@
 function contactToOwner({ name, email, subject, message }) {
   const formattedMessage = message.replace(/\n/g, '<br/>');
 
-  return `
-    <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
+  return `<div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
       <h2 style="color:#2c3e50;">📩 New Contact from Your Portfolio</h2>
       <p><strong>Name:</strong> ${name}</p>
       <p><strong>Email:</strong> ${email}</p>

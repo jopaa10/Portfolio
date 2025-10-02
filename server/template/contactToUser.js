@@ -1,8 +1,7 @@
 function contactToUser({ name, message }) {
   const formattedMessage = message.replace(/\n/g, '<br/>');
 
-  return `
-    <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
+  return `<div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
       <h2 style="color:#2c3e50;">Hi ${name},</h2>
       <p>Thank you for contacting me through my portfolio. I’ve received your message and will get back to you as soon as possible.</p>
       <p>Here’s a copy of your message:</p>
