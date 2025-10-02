@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const sgMail = require('@sendgrid/mail');
+const { Resend } = require('resend');
 
 require('dotenv').config();
 
@@ -12,7 +12,7 @@ const app = express();
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 app.post('/api/contact', async (req, res) => {
   const { name, email, subject, message } = req.body;
@@ -22,23 +22,20 @@ app.post('/api/contact', async (req, res) => {
   }
 
   try {
-    const msgToOwner = {
+    await resend.emails.send({
       to: process.env.EMAIL_USER,
       from: process.env.EMAIL_USER,
       replyTo: email,
       subject: `New Portfolio Contact: ${subject}`,
       html: contactToOwner({ name, email, subject, message })
-    };
+    });
 
-    const msgToUser = {
+    await resend.emails.send({
       to: email,
       from: process.env.EMAIL_USER,
       subject: 'Thanks for reaching out!',
       html: contactToUser({ name, message })
-    };
-
-    await sgMail.send(msgToOwner);
-    await sgMail.send(msgToUser);
+    });
 
     res.status(200).json({ success: true, message: 'Email sent successfully' });
   } catch (error) {
