@@ -11,7 +11,6 @@ const app = express();
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 
-// Brevo API URL
 const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
 
 app.post('/api/contact', async (req, res) => {
@@ -22,15 +21,14 @@ app.post('/api/contact', async (req, res) => {
   }
 
   try {
-    // Email to portfolio owner
     await axios.post(
       BREVO_API_URL,
       {
-        sender: { name: 'Portfolio', email: process.env.EMAIL_USER }, // must be verified
+        sender: { name: 'Portfolio', email: process.env.EMAIL_USER },
         to: [{ email: process.env.EMAIL_USER }],
         subject: `New Portfolio Contact: ${subject}`,
         htmlContent: contactToOwner({ name, email, subject, message }),
-        replyTo: { email, name } // visitor can reply directly
+        replyTo: { email, name }
       },
       {
         headers: {
@@ -40,7 +38,6 @@ app.post('/api/contact', async (req, res) => {
       }
     );
 
-    // Confirmation email to visitor
     await axios.post(
       BREVO_API_URL,
       {
