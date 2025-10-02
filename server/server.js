@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const { Resend } = require('resend');
-
+const axios = require('axios');
 require('dotenv').config();
 
 const contactToOwner = require('./template/contactToOwner');
@@ -12,7 +11,8 @@ const app = express();
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Brevo API URL
+const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
 
 app.post('/api/contact', async (req, res) => {
   const { name, email, subject, message } = req.body;
@@ -22,24 +22,44 @@ app.post('/api/contact', async (req, res) => {
   }
 
   try {
-    await resend.emails.send({
-      to: process.env.EMAIL_USER,
-      from: process.env.EMAIL_USER,
-      replyTo: email,
-      subject: `New Portfolio Contact: ${subject}`,
-      html: contactToOwner({ name, email, subject, message })
-    });
+    // Email to portfolio owner
+    await axios.post(
+      BREVO_API_URL,
+      {
+        sender: { name, email }, // visitor as sender
+        to: [{ email: process.env.EMAIL_USER }],
+        subject: `New Portfolio Contact: ${subject}`,
+        htmlContent: contactToOwner({ name, email, subject, message }),
+        replyTo: { email } // visitor can reply directly
+      },
+      {
+        headers: {
+          'api-key': process.env.BREVO_API_KEY,
+          'Content-Type': 'application/json'
+        }
+      }
+    );
 
-    await resend.emails.send({
-      to: email,
-      from: process.env.EMAIL_USER,
-      subject: 'Thanks for reaching out!',
-      html: contactToUser({ name, message })
-    });
+    // Confirmation email to visitor
+    await axios.post(
+      BREVO_API_URL,
+      {
+        sender: { name: 'Portfolio', email: process.env.EMAIL_USER },
+        to: [{ email }],
+        subject: 'Thanks for reaching out!',
+        htmlContent: contactToUser({ name, message })
+      },
+      {
+        headers: {
+          'api-key': process.env.BREVO_API_KEY,
+          'Content-Type': 'application/json'
+        }
+      }
+    );
 
     res.status(200).json({ success: true, message: 'Email sent successfully' });
   } catch (error) {
-    console.error('SendGrid error:', error);
+    console.error('Brevo error:', error.response?.data || error.message);
     res.status(500).json({ success: false, error: 'Failed to send email' });
   }
 });
