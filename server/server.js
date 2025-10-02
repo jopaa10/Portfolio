@@ -26,11 +26,11 @@ app.post('/api/contact', async (req, res) => {
     await axios.post(
       BREVO_API_URL,
       {
-        sender: { name, email }, // visitor as sender
+        sender: { name: 'Portfolio', email: process.env.EMAIL_USER }, // must be verified
         to: [{ email: process.env.EMAIL_USER }],
         subject: `New Portfolio Contact: ${subject}`,
         htmlContent: contactToOwner({ name, email, subject, message }),
-        replyTo: { email } // visitor can reply directly
+        replyTo: { email, name } // visitor can reply directly
       },
       {
         headers: {
