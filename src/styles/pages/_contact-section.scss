@@ -4,12 +4,16 @@
   width: 100%;
   position: relative;
   height: auto;
-  padding: 5rem 2rem;
+  padding: clamp(3rem, 5vw, 6rem) clamp(2rem, 4vw, 3rem);
+
+  @include tablet {
+    padding: clamp(2rem, 5vw, 6rem) clamp(1rem, 4vw, 3rem);
+  }
 }
 
 .contact {
   padding: 0 5% 5rem 5%;
-  max-width: 1200px;
+  //max-width: 600px;
   margin: 0 auto;
 
   &__form {
@@ -17,7 +21,7 @@
     margin: 0 auto;
 
     .flip-card-inner {
-      display: grid;
+      display: flex;
       width: 100%;
       transform-style: preserve-3d;
       transition: transform 0.8s ease;
@@ -34,39 +38,58 @@
         left: 0;
         width: 100%;
         border-radius: 15px;
+        padding: clamp(2rem, 4vw, 3rem); // responsive padding
+      }
+
+      .flip-card-back {
+        position: absolute;
       }
 
       .glass-card {
         .info {
           text-align: center;
-          margin-bottom: 3rem;
+          margin-bottom: clamp(2rem, 4vw, 3rem);
 
           h3 {
-            margin-bottom: 1rem;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
             background: var(--primary-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            font-size: clamp(1.8rem, 2vw, 1rem);
+
+            @include tablet {
+              font-size: clamp(2rem, 2vw, 1rem);
+            }
 
             @include mobile {
-              font-size: 3rem;
+              font-size: clamp(3rem, 2vw, 0.7rem);
             }
           }
 
           p {
             color: rgba(255, 255, 255, 0.7);
-            line-height: 1.6;
+            line-height: 1.8;
+            font-size: clamp(1rem, 2vw, 1rem);
+
+            @include tablet {
+              font-size: clamp(1.3rem, 2vw, 0.7rem);
+            }
+
+            @include mobile {
+              font-size: clamp(1.5rem, 2vw, 0.7rem);
+            }
           }
         }
 
         form {
           .form-group {
-            margin-bottom: 2rem;
+            margin-bottom: clamp(1.5rem, 3vw, 2rem);
 
             .form-row {
               display: grid;
               grid-template-columns: 1fr 1fr;
-              gap: 1rem;
+              gap: clamp(1rem, 2vw, 2rem);
             }
 
             label {
@@ -80,26 +103,26 @@
               -webkit-backdrop-filter: blur(20px);
               border: 1px solid var(--glass-border);
               border-radius: 15px;
-              padding: 1rem;
+              padding: clamp(1rem, 2vw, 1.5rem);
               color: var(--glass-text-color);
-              font-size: 1rem;
+              font-size: clamp(1rem, 2vw, 0.7rem);
               width: 100%;
+
+              @include tablet {
+                font-size: clamp(1.3rem, 2vw, 0.7rem);
+              }
+
+              @include mobile {
+                font-size: clamp(1.5rem, 2vw, 0.7rem);
+              }
 
               &::placeholder {
                 color: rgba(255, 255, 255, 0.5);
               }
-
-              @include tablet {
-                font-size: 1.4rem;
-              }
-
-              @include mobile {
-                font-size: 1.7rem;
-              }
             }
 
             textarea {
-              min-height: 8rem;
+              min-height: clamp(8rem, 12vw, 12rem);
             }
           }
         }
@@ -110,31 +133,50 @@
           flex-direction: column;
           border-top: 1px solid rgba(255, 255, 255, 0.1);
           width: 100%;
-          margin-top: 2rem;
-          padding-top: 2rem;
+          margin-top: clamp(2rem, 4vw, 3rem);
+          padding-top: clamp(2rem, 4vw, 3rem);
 
           p {
-            margin-bottom: 1.5rem;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
             color: rgba(255, 255, 255, 0.6);
+            font-size: clamp(1rem, 2vw, 0.7rem);
+
+            @include tablet {
+              font-size: clamp(1.3rem, 2vw, 0.7rem);
+            }
+
+            @include mobile {
+              font-size: clamp(1.5rem, 2vw, 0.7rem);
+            }
           }
 
           .contact-alternatives {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: clamp(0.8rem, 2vw, 1.5rem);
           }
 
           .contact-link {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: clamp(0.5rem, 1.5vw, 1rem);
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
+            font-size: clamp(1rem, 4vw, 1.5rem);
             transition: color 0.3s ease;
+            word-break: break-word;
 
-            &:hover {
-              color: var(--glass-text-color);
+            span {
+              font-size: clamp(1rem, 2vw, 0.7rem);
+
+              @include tablet {
+                font-size: clamp(1.3rem, 2vw, 0.7rem);
+              }
+
+              @include mobile {
+                font-size: clamp(1.5rem, 2vw, 0.7rem);
+              }
             }
           }
         }
@@ -147,7 +189,7 @@
         justify-content: space-evenly;
         align-items: center;
         text-align: center;
-        padding: 2rem;
+        padding: clamp(2rem, 4vw, 3rem);
         height: fit-content;
 
         .info {
@@ -155,7 +197,8 @@
         }
 
         .status-content {
-          margin-bottom: 2rem;
+          margin-bottom: clamp(1.5rem, 3vw, 2rem);
+          font-size: clamp(1rem, 2vw, 1.5rem);
         }
 
         &.status-success {
@@ -169,12 +212,12 @@
         } // blue
 
         .spinner {
-          margin-top: 1rem;
-          border: 4px solid rgba(255, 255, 255, 0.3);
-          border-top: 4px solid #fff;
+          margin-top: clamp(1rem, 2vw, 1.5rem);
+          border: clamp(3px, 0.5vw, 4px) solid rgba(255, 255, 255, 0.3);
+          border-top: clamp(3px, 0.5vw, 4px) solid #fff;
           border-radius: 50%;
-          width: 40px;
-          height: 40px;
+          width: clamp(40px, 6vw, 60px);
+          height: clamp(40px, 6vw, 60px);
           animation: spin 1s linear infinite;
         }
       }

@@ -1,72 +1,152 @@
-# Getting Started with Create React App
+# 🌐 Personal Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive **personal portfolio website** built with **React** on the frontend and **Node.js + Express** on the backend for handling contact form submissions securely.
 
-## Available Scripts
+This project highlights my work, skills, and experience as a developer, with smooth animations and an elegant user experience.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🎨 **Modern UI/UX** – Clean, minimal, and fully responsive design.
+- 🧭 **Smooth Navigation** – Animated transitions and scroll effects.
+- 💼 **Project Showcase** – Detailed project cards with live demos and GitHub links.
+- 💬 **Contact Form Integration** – Backend API with Node & Express to send messages via email.
+- 🌙 **Accessability** – Accessability enable.
+- ⚡ **Performance Optimized** – Fast loading with lazy image loading and optimized assets.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **Frontend**
 
-### `npm run build`
+- React
+- Tailwind CSS (or your CSS framework)
+- Framer Motion / AOS (for animations)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **Backend**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js
+- Express.js
+- Brevo
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### **Deployment**
 
-### `npm run eject`
+- Frontend: Vercel
+- Backend: Render
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📦 Installation & Setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Clone the repository and install dependencies for both frontend and backend:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+# Clone repository
+git clone https://github.com/your-username/portfolio.git
+cd portfolio
+```
 
-## Learn More
+## 🖥️ Frontend Setup
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+cd client
+npm install
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Your React app will run on http://localhost:3000.
 
-### Code Splitting
+## ⚙️ Backend Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+cd server
+npm install
+npm run dev
+```
 
-### Analyzing the Bundle Size
+Your Express server will run on http://localhost:5000.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Create a .env file in the server directory with your environment variables:
 
-### Making a Progressive Web App
+```bash
+PORT=5000
+EMAIL_USER=your-email@example.com
+EMAIL_PASS=your-email-password
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+🧱 Folder Structure
+portfolio/
+├── client/ # React frontend
+│ ├── public/
+│ └── src/
+│ ├── assets/ # Images, icons, etc.
+│ ├── components/ # Reusable UI components
+│ ├── pages/ # Page-level components
+│ ├── data/ # Project and skill data
+│ ├── App.js
+│ └── index.js
+│ └── package.json
+│
+├── server/ # Express backend
+│ ├── controllers/ # Request handlers
+│ ├── routes/ # API routes (e.g. /api/contact)
+│ ├── utils/ # Helpers (email, validation)
+│ ├── server.js
+│ └── package.json
+│
+└── README.md
 
-### Advanced Configuration
+## 🧰 Scripts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Frontend
 
-### Deployment
+```bash
+# in /client
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+npm start # Start development server
+npm run build # Create production build
+```
 
-### `npm run build` fails to minify
+Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+# in /server
 
-# Portfolio
+npm run dev # Run server in development mode (e.g. nodemon)
+npm start # Start server in production mode
+```
+
+## 🌍 Deployment
+
+You can deploy the project using:
+
+Frontend: Netlify, Vercel, or GitHub Pages
+
+Backend: Render, Railway, or any Node-compatible hosting service
+
+Deployment notes
+
+If frontend and backend are deployed separately, update your frontend API base URL to the deployed backend URL (for example, set REACT_APP_API_URL=https://api.yourdomain.com in the frontend environment).
+
+For monorepo deployments, you can use serverless functions (Vercel) or a separate server host and proxy API calls as needed.
+
+## 🧑‍💻 Author
+
+Josipa Znaor
+Full Stack Developer — passionate about building interactive and performant web applications
+
+- Website: https://yourwebsite.com
+
+- LinkedIn: https://linkedin.com/in/yourhandle
+
+- GitHub: https://github.com/your-username
+
+## 📜 License
+
+This project is licensed under the MIT License — feel free to use and modify it.
+
+```
+
+```

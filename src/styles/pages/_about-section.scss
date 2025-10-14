@@ -2,11 +2,16 @@
 
 #about {
   width: 100%;
-  padding: 0 6rem;
+  padding: clamp(3rem, 6vw, 5rem) 5%;
   max-width: 1200px;
+  margin: 0 auto;
 
   @include tablet {
-    padding: 0 2rem;
+    padding: clamp(2rem, 5vw, 3rem) 2rem;
+  }
+
+  @include mobile {
+    padding: clamp(2rem, 6vw, 3rem) 1.5rem;
   }
 }
 
@@ -14,18 +19,19 @@
   margin: 0 auto;
 
   .glass-card {
-    padding: 3rem !important;
+    padding: clamp(2rem, 4vw, 3rem) !important;
   }
 
   &__me {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 3rem;
-    align-items: center;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    align-items: start;
+    justify-items: center;
 
     .image-block {
-      width: 10rem;
-      height: 10rem;
+      width: clamp(6rem, 10vw + 4rem, 12rem);
+      height: clamp(6rem, 10vw + 4rem, 12rem);
       background: var(--accent-gradient);
       border-radius: 50%;
       margin: 0 auto 1rem;
@@ -40,41 +46,38 @@
       grid-template-columns: 1fr;
     }
 
-    @include mobile {
-      grid-template-columns: 1fr;
-    }
-
     .social-icons {
       display: flex;
       justify-content: center;
-      gap: 1rem;
+      flex-wrap: wrap;
+      gap: clamp(0.5rem, 1vw, 1rem);
       margin-top: 1rem;
 
       a {
-        width: 2.5rem;
-        height: 2.5rem;
+        width: clamp(2.5rem, 4vw, 3.5rem);
+        height: clamp(2.5rem, 4vw, 3.5rem);
         background: var(--glass-bg);
         border: 1px solid var(--glass-border);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.2rem;
+        font-size: clamp(1.2rem, 2vw, 1.5rem);
         text-decoration: none;
         transition: 0.3s;
         transform: translateY(0px);
         color: inherit;
 
         @include tablet {
-          width: 3.5rem;
-          height: 3.5rem;
-          font-size: 1.5rem;
+          font-size: clamp(2rem, 2vw, 0.7rem);
+          width: clamp(4.5rem, 4vw, 3.5rem);
+          height: clamp(4.5rem, 4vw, 3.5rem);
         }
 
-        @include tablet {
-          width: 4.5rem;
-          height: 4.5rem;
-          font-size: 2rem;
+        @include mobile {
+          font-size: clamp(2rem, 2vw, 0.7rem);
+          width: clamp(4.5rem, 4vw, 3.5rem);
+          height: clamp(4.5rem, 4vw, 3.5rem);
         }
 
         &:hover {
@@ -89,75 +92,79 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      font-size: clamp(1.8rem, 2vw, 0.7rem);
 
       @include tablet {
-        font-size: 2.5rem;
+        font-size: clamp(2.5rem, 2vw, 0.7rem);
       }
 
       @include mobile {
-        font-size: 3rem;
+        font-size: clamp(3rem, 2vw, 0.7rem);
       }
     }
 
     p {
       line-height: 1.7;
-      font-size: 1rem;
+      font-size: clamp(1rem, 2vw, 0.7rem);
 
       @include tablet {
-        font-size: 1.4rem;
+        font-size: clamp(1.4rem, 2vw, 0.7rem);
       }
 
       @include mobile {
-        font-size: 1.8rem;
+        font-size: clamp(1.8rem, 2vw, 0.7rem);
       }
     }
   }
 
   .info {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: clamp(0.75rem, 2vw, 1.5rem);
     width: 100%;
-    max-width: 75vh;
+    max-width: min(100%, 75vh);
     margin: 0 auto;
 
     .info-section {
       border: 1px solid rgba(102, 126, 234, 0.3);
-      padding: 1rem;
+      padding: clamp(1rem, 2vw, 1.5rem);
       border-radius: 15px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
 
       &__icon-title-container {
         display: flex;
         align-items: center;
-        gap: 0.25rem;
+        flex-wrap: wrap;
+        gap: clamp(0.25rem, 1vw, 0.5rem);
         margin-bottom: 0.5rem;
         width: 100%;
 
         .title {
-          font-size: 1.5rem;
+          font-size: clamp(1.5rem, 2vw, 1rem);
           font-weight: 600;
           margin: 0;
           -webkit-text-fill-color: unset;
-
-          @include desktop {
-            font-size: 1.2rem;
-          }
         }
 
         .about-icon {
-          font-size: 1.5rem;
-
-          @include desktop {
-            font-size: 1.2rem;
-          }
+          font-size: clamp(1.2rem, 4vw, 1.5rem);
         }
       }
+
       .text {
         margin-bottom: 0;
+        font-size: clamp(1rem, 2vw, 0.7rem);
+
+        @include tablet {
+          font-size: clamp(1.3rem, 2vw, 0.7rem);
+        }
+
+        @include mobile {
+          font-size: clamp(1.7rem, 2vw, 0.7rem);
+        }
       }
 
       &__content {
@@ -167,7 +174,7 @@
 
     @include tablet {
       grid-template-columns: 1fr;
-      max-width: 50vh;
+      max-width: 90%;
     }
   }
 }

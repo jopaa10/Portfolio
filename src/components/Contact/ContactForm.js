@@ -94,7 +94,6 @@ const ContactForm = () => {
   const isFormComplete =
     formData.name.trim() !== '' &&
     formData.email.trim() !== '' &&
-    isValidEmail(formData.email) &&
     formData.subject.trim() !== '' &&
     formData.message.trim() !== '';
 

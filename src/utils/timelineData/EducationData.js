@@ -35,7 +35,7 @@ const timeline = [
       • Focused on scalable full-stack application development.  
       • Researched and implemented innovative web solutions during thesis work.  
     `,
-    technologies: ['Full-stack Development', 'Distributed Systems']
+    technologies: ['Full-stack', 'Distributed Systems']
   },
 
   // Work
