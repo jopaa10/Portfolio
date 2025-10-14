@@ -44,14 +44,13 @@ Clone the repository and install dependencies for both frontend and backend:
 
 ```bash
 # Clone repository
-git clone https://github.com/your-username/portfolio.git
+git clone https://github.com/jopaa10/Portfolio.git
 cd portfolio
 ```
 
 ## 🖥️ Frontend Setup
 
 ```bash
-cd client
 npm install
 npm start
 ```
@@ -137,16 +136,12 @@ For monorepo deployments, you can use serverless functions (Vercel) or a separat
 Josipa Znaor
 Full Stack Developer — passionate about building interactive and performant web applications
 
-- Website: https://yourwebsite.com
+- Website: https://portfolio-josipa-znaor.vercel.app/
 
-- LinkedIn: https://linkedin.com/in/yourhandle
+- LinkedIn: https://www.linkedin.com/in/josipa-znaor-105692222/
 
-- GitHub: https://github.com/your-username
+- GitHub: https://github.com/jopaa10
 
 ## 📜 License
 
 This project is licensed under the MIT License — feel free to use and modify it.
-
-```
-
-```

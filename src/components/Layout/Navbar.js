@@ -12,18 +12,20 @@ const Navbar = () => {
   const threshold = 28;
 
   const toggleMenu = () => {
+    if (!(isMobileView || forceMobileView)) return;
+
     if (menuOpen) {
       setClosing(true);
       setTimeout(() => {
         setMenuOpen(false);
         setClosing(false);
-      }, 300); // match your CSS transition
+      }, 300);
     } else {
       setMenuOpen(true);
     }
   };
 
-  const handleIsActive = (id) => {
+  const handleIsActive = () => {
     toggleMenu();
   };
 
@@ -37,7 +39,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      setIsMobileView(width <= 1024); // tablet breakpoint
+      setIsMobileView(width <= 768); // tablet breakpoint
       if (width > 1024) {
         setMenuOpen(false);
         setClosing(false);
@@ -54,7 +56,7 @@ const Navbar = () => {
       cleanup();
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [forceMobileView]);
 
   const showToggle = isMobileView || forceMobileView;
 
