@@ -16,8 +16,12 @@
       grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     }
 
+    @include tablet {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
     @include mobile {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: 1fr;
     }
   }
 
@@ -29,8 +33,8 @@
     padding: clamp(1rem, 3vw, 2rem);
     text-align: center;
     display: flex;
-    flex-direction: column; // needed for equal height cards
-    justify-content: start; // top-align content
+    flex-direction: column;
+    justify-content: start;
     box-sizing: border-box;
 
     h3 {
@@ -134,8 +138,7 @@
         border-radius: 20px;
         border: 1px solid var(--glass-border);
         font-size: clamp(1.1rem, 2vw, 0.7rem);
-        min-width: 200px;
-
+        width: 100%;
         @include tablet {
           font-size: clamp(1.3rem, 2vw, 0.7rem);
         }
