@@ -4,15 +4,15 @@
   width: 100%;
   position: relative;
   height: auto;
-  padding: 5rem 0;
+  padding: 4rem 5%;
 
-  @include tablet {
-    padding: 5rem 2rem;
-  }
+  // @include tablet {
+  //   padding: 5rem 2rem;
+  // }
 
-  @include mobile {
-    padding: 5rem 0.5rem;
-  }
+  // @include mobile {
+  //   padding: 5rem 0.5rem;
+  // }
 
   .content {
     height: fit-content;

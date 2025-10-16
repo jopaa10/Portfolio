@@ -4,16 +4,12 @@
   width: 100%;
   position: relative;
   height: auto;
-  padding: clamp(3rem, 5vw, 6rem) clamp(2rem, 4vw, 3rem);
-
-  @include tablet {
-    padding: clamp(2rem, 5vw, 6rem) clamp(1rem, 4vw, 3rem);
-  }
+  padding: 0 5%;
+  padding-bottom: 4rem;
 }
 
 .contact {
   padding: 0 5% 5rem 5%;
-  //max-width: 600px;
   margin: 0 auto;
 
   &__form {
