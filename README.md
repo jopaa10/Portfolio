@@ -12,7 +12,7 @@ This project highlights my work, skills, and experience as a developer, with smo
 - 🧭 **Smooth Navigation** – Animated transitions and scroll effects.
 - 💼 **Project Showcase** – Detailed project cards with live demos and GitHub links.
 - 💬 **Contact Form Integration** – Backend API with Node & Express to send messages via email.
-- 🌙 **Accessability** – Accessability enable.
+- ♿ **Accessibility** — Designed with inclusive color contrast, keyboard navigation, and ARIA labels for better usability.
 - ⚡ **Performance Optimized** – Fast loading with lazy image loading and optimized assets.
 
 ---
