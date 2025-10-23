@@ -75,27 +75,46 @@ EMAIL_USER=your-email@example.com
 EMAIL_PASS=your-email-password
 ```
 
-🧱 Folder Structure
-portfolio/
-├── client/ # React frontend
-│ ├── public/
-│ └── src/
-│ ├── assets/ # Images, icons, etc.
-│ ├── components/ # Reusable UI components
-│ ├── pages/ # Page-level components
-│ ├── data/ # Project and skill data
-│ ├── App.js
-│ └── index.js
-│ └── package.json
+## 🧱 Folder Structure
+
+```bash
+Frontend
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── common/
+│   │   ├── layout/
+│   │   └── ui/
+│   ├── context/
+│   ├── pages/
+│   ├── styles/
+│   │   ├── _animations.scss
+│   │   ├── _base.scss
+│   │   ├── _mixins.scss
+│   │   └── _variables.scss
+│   ├── utils/
+│   ├── App.js
+│   ├── App.test.js
+│   ├── index.js
 │
-├── server/ # Express backend
-│ ├── controllers/ # Request handlers
-│ ├── routes/ # API routes (e.g. /api/contact)
-│ ├── utils/ # Helpers (email, validation)
-│ ├── server.js
-│ └── package.json
-│
-└── README.md
+├── .env
+├── package-lock.json
+└── package.json
+```
+
+```bash
+Backend
+├── server/
+│   ├── node_modules/
+│   ├── template/
+│   ├── .env
+│   ├── .eslintignore
+│   ├── .gitignore
+│   ├── package-lock.json
+│   ├── package.json
+│   └── server.js
+```
 
 ## 🧰 Scripts
 
