@@ -1,0 +1,28 @@
+@import '../mix-ins';
+
+footer {
+  height: auto;
+  width: 100%;
+  background-color: var(--glass-bg);
+  position: relative;
+  padding: 1.5rem 0;
+  color: var(--glass-text-color);
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 5%;
+    text-transform: capitalize;
+    width: 100%;
+
+    @include mobile {
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}

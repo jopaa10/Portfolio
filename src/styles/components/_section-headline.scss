@@ -3,42 +3,43 @@
 .headline {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-bottom: clamp(2rem, 5vw, 4rem); // responsive spacing
 
   h2 {
-    margin: 0;
-    color: #333;
     font-weight: 700;
-    line-height: 90px;
-    text-transform: uppercase;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 100%;
-    transition: 0.7s ease;
-    font-size: 5rem;
+    text-align: center;
+    margin-bottom: clamp(0.5rem, 2vw, 1rem);
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: capitalize;
+    font-size: clamp(2.8rem, 2vw, 0.7rem);
 
     @include tablet {
-      font-size: 4rem;
+      font-size: clamp(2.4rem, 2vw, 0.7rem);
     }
 
     @include mobile {
-      font-size: 3rem;
+      font-size: clamp(4rem, 2vw, 0.7rem);
     }
   }
 
   p {
-    color: #cb532e;
-    position: absolute;
-    font-size: 2rem;
-    text-transform: capitalize;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: clamp(1rem, 2.5vw, 0.7rem);
+    line-height: clamp(1.4, 1.6, 1.8);
 
     @include tablet {
-      font-size: 1.5rem;
+      font-size: clamp(1.3rem, 2vw, 0.7rem);
     }
 
     @include mobile {
-      font-size: 1rem;
+      font-size: clamp(1.7rem, 2vw, 0.7rem);
     }
   }
 }

@@ -1,135 +1,172 @@
 @import '../mix-ins';
 
 #about {
-  background-color: #141414;
   width: 100%;
-  position: relative;
-  height: auto;
-  padding: 10rem 0;
+  padding: 0 5%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.image-block {
-  min-width: 20rem;
-  margin-left: 5rem;
-  align-self: center;
+.about {
+  margin: 0 auto;
 
-  @include tablet {
-    margin-left: 0;
-    min-width: 0;
+  .glass-card {
+    padding: clamp(2rem, 4vw, 3rem) !important;
   }
-}
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  padding: 4rem 0;
-  margin: 0 1rem;
-  flex-basis: 50%;
-  //gap: 2rem;
+  &__me {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    align-items: start;
+    justify-items: center;
 
-  .about-me {
-    //width: 60%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-
-    p {
-      padding: 2rem 0;
-      line-height: 2;
+    .image-block {
+      width: clamp(6rem, 10vw + 4rem, 12rem);
+      height: clamp(6rem, 10vw + 4rem, 12rem);
+      background: var(--accent-gradient);
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     }
 
-    &__info {
-      padding: 2rem 0;
-      word-break: break-word;
-      width: inherit;
-      line-height: 2;
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
 
-      ul {
-        list-style: none;
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: clamp(0.5rem, 1vw, 1rem);
+      margin-top: 1rem;
+
+      a {
+        width: clamp(2.5rem, 4vw, 3.5rem);
+        height: clamp(2.5rem, 4vw, 3.5rem);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 50%;
         display: flex;
-        padding: 0;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        align-items: center;
+        justify-content: center;
+        font-size: clamp(1.2rem, 2vw, 1.5rem);
+        text-decoration: none;
+        transition: 0.3s;
+        transform: translateY(0px);
+        color: inherit;
 
         @include tablet {
-          justify-content: center;
+          font-size: clamp(2rem, 2vw, 0.7rem);
+          width: clamp(4.5rem, 4vw, 3.5rem);
+          height: clamp(4.5rem, 4vw, 3.5rem);
         }
 
-        li {
-          display: flex;
-          margin: 1rem 0;
-          flex-basis: calc(50% - 20px);
+        @include mobile {
+          font-size: clamp(2rem, 2vw, 0.7rem);
+          width: clamp(4.5rem, 4vw, 3.5rem);
+          height: clamp(4.5rem, 4vw, 3.5rem);
+        }
 
-          span {
-            display: block;
-            min-width: 5rem;
-            color: var(--activeTextColor);
-          }
-
-          @media (max-width: 991px) {
-            flex-basis: 100%;
-          }
+        &:hover {
+          transform: translateY(-5px);
         }
       }
     }
 
-    &__cv {
+    h3 {
+      margin-bottom: 1.5rem;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: clamp(1.8rem, 2vw, 0.7rem);
+
+      @include tablet {
+        font-size: clamp(2.5rem, 2vw, 0.7rem);
+      }
+
+      @include mobile {
+        font-size: clamp(3rem, 2vw, 0.7rem);
+      }
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: clamp(1rem, 2vw, 0.7rem);
+
+      @include tablet {
+        font-size: clamp(1.4rem, 2vw, 0.7rem);
+      }
+
+      @include mobile {
+        font-size: clamp(1.8rem, 2vw, 0.7rem);
+      }
+    }
+  }
+
+  .info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+    width: 100%;
+    max-width: min(100%, 75vh);
+    margin: 0 auto;
+
+    .info-section {
+      border: 1px solid rgba(102, 126, 234, 0.3);
+      padding: clamp(1rem, 2vw, 1.5rem);
+      border-radius: 15px;
       display: flex;
-      justify-content: flex-start;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
 
-      &__btn {
-        border-radius: 2rem;
-        color: var(--activeTextColor);
-        text-decoration: none;
-        box-shadow: inset 0px 0px 0px 2px var(--activeTextColor);
-        padding: 1rem 1rem;
+      &__icon-title-container {
         display: flex;
-        justify-content: space-between;
-        overflow: hidden;
-        position: relative;
-        z-index: 1;
-        transition: 0.3s ease-in;
         align-items: center;
+        flex-wrap: wrap;
+        gap: clamp(0.25rem, 1vw, 0.5rem);
+        margin-bottom: 0.5rem;
+        width: 100%;
 
-        p {
-          padding: 0 0.4rem;
+        .title {
+          font-size: clamp(1.5rem, 2vw, 1rem);
+          font-weight: 600;
+          margin: 0;
+          -webkit-text-fill-color: unset;
         }
 
-        &:hover {
-          color: #fff;
+        .about-icon {
+          font-size: clamp(1.2rem, 4vw, 1.5rem);
+        }
+      }
+
+      .text {
+        margin-bottom: 0;
+        font-size: clamp(1rem, 2vw, 0.7rem);
+
+        @include tablet {
+          font-size: clamp(1.3rem, 2vw, 0.7rem);
         }
 
-        &:before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 0;
-          height: 100%;
-          background-color: var(--activeTextColor);
-          z-index: -1;
-          transition: 0.3s ease-in;
+        @include mobile {
+          font-size: clamp(1.7rem, 2vw, 0.7rem);
         }
+      }
 
-        &:hover:before {
-          width: 100%;
-        }
+      &__content {
+        width: 100%;
       }
     }
 
     @include tablet {
-      width: 100%;
-      padding: 0 3rem;
-      align-items: center;
+      grid-template-columns: 1fr;
+      max-width: 90%;
     }
-  }
-
-  @include tablet {
-    flex-direction: column;
-    width: 100%;
-    margin: 0 auto;
   }
 }

@@ -1,42 +1,128 @@
-export default [
+const SkillsData = [
   {
-    id: 1,
-    name: 'HTML',
-    value: '80%'
+    icon: '🎨',
+    title: 'Frontend Development',
+    description:
+      'Creating beautiful, responsive, and accessible user interfaces with modern frameworks and best practices.',
+    skills: [
+      { name: 'React', percent: '80%' },
+      { name: 'Svelte', percent: '85%' },
+      { name: 'Next.js', percent: '75%' },
+      { name: 'HTML', percent: '95%' },
+      { name: 'CSS / SCSS', percent: '85%' },
+      { name: 'TypeScript', percent: '70%' }
+    ],
+    extra: ['Responsive Design', 'CSS3', 'Flexbox/Grid']
   },
   {
-    id: 2,
-    name: 'CSS / SCSS',
-    value: '75%'
+    icon: '🛠️',
+    title: 'Backend Development',
+    description: 'Building fast, scalable, and secure server-side applications and APIs.',
+    skills: [
+      { name: 'Node.js', percent: '60%' },
+      { name: 'Express', percent: '60%' }
+    ],
+    extra: ['REST APIs', 'Authentication']
   },
   {
-    id: 3,
-    name: 'React JS',
-    value: '70%'
+    icon: '🗄️',
+    title: 'Databases',
+    description: 'Working with relational and non-relational databases for data-driven apps.',
+    skills: [
+      { name: 'MongoDB', percent: '70%' },
+      { name: 'Prisma', percent: '60%' },
+      { name: 'PostgreSQL', percent: '50%' }
+    ],
+    extra: ['ORMs', 'Data Modeling']
   },
   {
-    id: 4,
-    name: 'React Native',
-    value: '70%'
+    icon: '♿',
+    title: 'WCAG',
+    description: 'Ensuring web accessibility and inclusivity by following WCAG guidelines.',
+    skills: [
+      { name: 'Semantic HTML', percent: '80%' },
+      { name: 'ARIA Roles', percent: '90%' },
+      { name: 'Keyboard Navigation', percent: '80%' },
+      { name: 'Screen Reader Testing', percent: '90%' }
+    ],
+    extra: ['Contrast Checking', 'Accessible Forms']
   },
   {
-    id: 5,
-    name: 'Node JS',
-    value: '30%'
+    icon: '🧠',
+    title: 'Soft Skills',
+    description: 'Core interpersonal and cognitive skills valuable across any team or project.',
+    skills: [
+      { name: 'English Communication', percent: '90%' },
+      { name: 'Problem Solving', percent: '85%' },
+      { name: 'Team Collaboration', percent: '95%' },
+      { name: 'Continuous Learning', percent: '95%' }
+    ],
+    extra: ['Empathy', 'Adaptability', 'Initiative']
   },
   {
-    id: 6,
-    name: 'Svelte / SvelteKit',
-    value: '65%'
+    icon: '🗂️',
+    title: 'Project Management',
+    description: 'Managing tasks, timelines, and teams using modern tools and methodologies.',
+    skills: [
+      { name: 'Linear', percent: '90%' },
+      { name: 'Jira', percent: '70%' }
+    ],
+    extra: ['Agile', 'Scrum', 'Issue Tracking']
   },
   {
-    id: 7,
-    name: 'Figma',
-    value: '75%'
+    icon: '🧪',
+    title: 'Testing',
+    description:
+      'Ensuring code quality, functionality, and UI integrity through automated testing.',
+    skills: [
+      { name: 'Jest', percent: '60%' },
+      { name: 'Storybook', percent: '75%' }
+    ],
+    extra: ['Unit Testing', 'Visual Regression']
   },
   {
-    id: 8,
-    name: 'Nature / Landscape photography',
-    value: '80%'
+    icon: '📱',
+    title: 'Mobile Development',
+    description: 'Developing cross-platform mobile applications using React Native.',
+    skills: [{ name: 'React Native', percent: '75%' }],
+    extra: ['Responsive Layouts', 'Mobile UI/UX']
+  },
+  {
+    icon: '🚀',
+    title: 'DevOps & Deployment',
+    description: 'Deploying and managing web applications efficiently across various platforms.',
+    skills: [
+      { name: 'Git', percent: '80%' },
+      { name: 'Render', percent: '70%' },
+      { name: 'Vercel', percent: '85%' },
+      { name: 'Netlify', percent: '85%' }
+    ],
+    extra: ['Version Control', 'CI/CD Basics']
+  },
+  {
+    icon: '📷',
+    title: 'Photography',
+    description:
+      'Capturing and editing stunning photos and videos across various environments and formats.',
+    skills: [
+      { name: 'Photography', percent: '80%' },
+      { name: 'Drone Usage', percent: '80%' },
+      { name: 'Video Creation', percent: '75%' }
+    ],
+    extra: ['Photo Editing', 'Drone Filming', 'Color Grading']
+  },
+  {
+    icon: '🎨',
+    title: 'Design',
+    description:
+      'Designing modern, user-friendly interfaces and visual content using professional tools.',
+    skills: [
+      { name: 'Figma', percent: '85%' },
+      { name: 'Adobe Photoshop', percent: '80%' },
+      { name: 'Lightroom', percent: '85%' }
+    ],
+    extra: ['UI Design', 'Photo Editing', 'Prototyping']
   }
 ];
+
+export default SkillsData;

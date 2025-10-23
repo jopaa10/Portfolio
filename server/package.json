@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "dev": "nodemon server.js",
+    "lint": "eslint . --ext .js,.ts",
+    "lint:fix": "eslint --fix . --ext .js,.ts",
+    "format": "prettier --write './**/*.{js,ts,json,md}'"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.6",
+    "axios": "^1.12.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "nodemailer": "^7.0.6",
+    "resend": "^6.1.2"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-node": "^11.1.0",
+    "nodemon": "^3.1.10"
+  }
+}

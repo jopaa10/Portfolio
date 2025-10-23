@@ -13,10 +13,14 @@ export default [
   },
   {
     id: 4,
-    title: 'portfolio'
+    title: 'projects'
   },
   {
     id: 5,
     title: 'skills'
+  },
+  {
+    id: 6,
+    title: 'contact'
   }
 ];

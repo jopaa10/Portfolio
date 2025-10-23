@@ -1,24 +1,152 @@
 @import '../mix-ins';
 
 #skills {
-  background-color: #000000;
   width: 100%;
   position: relative;
   height: auto;
-  padding: 10rem 0;
+  padding: 4rem 5%;
 
   .skills-box {
-    flex: 0 0 auto;
-    width: auto;
-    padding: 2rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    gap: clamp(1rem, 3vw, 2rem);
+
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    &--single-col {
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
 
     @include tablet {
-      flex-direction: column;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .skill-category {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 25px;
+    padding: clamp(1rem, 3vw, 2rem);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    box-sizing: border-box;
+
+    h3 {
+      font-size: clamp(1rem, 2vw, 2rem);
+      margin-bottom: 1rem;
+      color: var(--glass-text-color);
+      text-transform: capitalize;
+
+      @include tablet {
+        font-size: clamp(1.6rem, 2vw, 0.7rem);
+      }
+
+      @include mobile {
+        font-size: clamp(2rem, 2vw, 0.7rem);
+      }
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      font-size: clamp(1rem, 2vw, 0.7rem);
+
+      @include tablet {
+        font-size: clamp(1.3rem, 2vw, 0.7rem);
+      }
+
+      @include mobile {
+        font-size: clamp(1.5rem, 2vw, 0.7rem);
+      }
+    }
+  }
+
+  .progress {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+
+    .progress-item {
+      margin-bottom: 1.5rem;
+      width: 100%;
+    }
+
+    &__skill {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+
+      .tehnology,
+      .percent {
+        font-weight: 600;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+
+        @include tablet {
+          font-size: clamp(1.3rem, 2vw, 1rem);
+        }
+
+        @include mobile {
+          font-size: clamp(1.5rem, 2vw, 1rem);
+        }
+      }
+
+      .tehnology {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .percent {
+        color: #61dafb;
+      }
+    }
+
+    &__bar {
+      background: var(--glass-bg);
+      border-radius: 10px;
+      height: 0.5rem;
+      overflow: hidden;
+
+      &--fill {
+        background: linear-gradient(90deg, #61dafb, #21d4fd);
+        width: 80%;
+        height: 100%;
+        border-radius: 10px;
+        animation: skillLoad 2s ease-out;
+      }
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
       justify-content: center;
-      align-items: center;
+      margin-top: clamp(1.5rem, 3vw, 3rem);
+
+      &__item {
+        background: var(--glass-bg);
+        padding: clamp(0.5rem, 1vw, 1rem) clamp(0.8rem, 2vw, 1.5rem);
+        border-radius: 20px;
+        border: 1px solid var(--glass-border);
+        font-size: clamp(1.1rem, 2vw, 0.7rem);
+        width: 100%;
+        @include tablet {
+          font-size: clamp(1.3rem, 2vw, 0.7rem);
+        }
+
+        @include mobile {
+          font-size: clamp(1.5rem, 2vw, 0.7rem);
+        }
+      }
     }
   }
 }
